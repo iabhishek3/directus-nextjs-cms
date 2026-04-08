@@ -1,0 +1,111 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: discover.
+      - generic [ref=e6]:
+        - link "Events" [ref=e7] [cursor=pointer]:
+          - /url: "#events"
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: "#about"
+        - link "Get Started" [ref=e9] [cursor=pointer]:
+          - /url: "#"
+  - generic [ref=e13]:
+    - generic [ref=e14]: 120+ events live now
+    - heading "Find events that inspire you" [level=1] [ref=e16]
+    - paragraph [ref=e17]: Curated conferences, workshops, and meetups from the world's best communities. All in one place.
+    - generic [ref=e18]:
+      - link "Browse Events" [ref=e19] [cursor=pointer]:
+        - /url: "#events"
+      - link "Learn More" [ref=e20] [cursor=pointer]:
+        - /url: "#about"
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e24]: 10K+
+      - generic [ref=e25]: Attendees
+    - generic [ref=e26]:
+      - generic [ref=e27]: 120+
+      - generic [ref=e28]: Events
+    - generic [ref=e29]:
+      - generic [ref=e30]: 50+
+      - generic [ref=e31]: Cities
+    - generic [ref=e32]:
+      - generic [ref=e33]: 98%
+      - generic [ref=e34]: Satisfaction
+  - generic [ref=e35]:
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - heading "Upcoming Events" [level=2] [ref=e38]
+        - paragraph [ref=e39]: Don't miss what's happening next.
+      - link "View all →" [ref=e40] [cursor=pointer]:
+        - /url: "#"
+    - generic [ref=e41]:
+      - generic [ref=e42] [cursor=pointer]:
+        - generic [ref=e43]:
+          - generic [ref=e44]: Design
+          - generic [ref=e45]: Apr 18, 2026
+        - heading "Design Systems Summit" [level=3] [ref=e46]
+        - paragraph [ref=e47]: A deep dive into scalable design systems used by top product teams.
+        - generic [ref=e48]:
+          - img [ref=e49]
+          - text: San Francisco, CA
+      - generic [ref=e52] [cursor=pointer]:
+        - generic [ref=e53]:
+          - generic [ref=e54]: Engineering
+          - generic [ref=e55]: May 3, 2026
+        - heading "React Conf 2026" [level=3] [ref=e56]
+        - paragraph [ref=e57]: The latest in React Server Components, compiler updates, and the ecosystem.
+        - generic [ref=e58]:
+          - img [ref=e59]
+          - text: Las Vegas, NV
+      - generic [ref=e62] [cursor=pointer]:
+        - generic [ref=e63]:
+          - generic [ref=e64]: Business
+          - generic [ref=e65]: May 10, 2026
+        - heading "Startup Pitch Night" [level=3] [ref=e66]
+        - paragraph [ref=e67]: Watch 12 early-stage startups pitch to a panel of top-tier investors.
+        - generic [ref=e68]:
+          - img [ref=e69]
+          - text: New York, NY
+      - generic [ref=e72] [cursor=pointer]:
+        - generic [ref=e73]:
+          - generic [ref=e74]: AI
+          - generic [ref=e75]: May 22, 2026
+        - heading "AI & ML Workshop" [level=3] [ref=e76]
+        - paragraph [ref=e77]: Hands-on workshop covering LLMs, fine-tuning, and production deployment.
+        - generic [ref=e78]:
+          - img [ref=e79]
+          - text: Austin, TX
+      - generic [ref=e82] [cursor=pointer]:
+        - generic [ref=e83]:
+          - generic [ref=e84]: Creative
+          - generic [ref=e85]: Jun 1, 2026
+        - heading "Photography Walk" [level=3] [ref=e86]
+        - paragraph [ref=e87]: Explore the city through your lens with professional photographers.
+        - generic [ref=e88]:
+          - img [ref=e89]
+          - text: Portland, OR
+      - generic [ref=e92] [cursor=pointer]:
+        - generic [ref=e93]:
+          - generic [ref=e94]: Engineering
+          - generic [ref=e95]: Jun 14, 2026
+        - heading "Cloud Architecture Day" [level=3] [ref=e96]
+        - paragraph [ref=e97]: Best practices for building resilient, cost-effective cloud infrastructure.
+        - generic [ref=e98]:
+          - img [ref=e99]
+          - text: Seattle, WA
+  - generic [ref=e105]:
+    - heading "Ready to discover something new?" [level=2] [ref=e106]
+    - paragraph [ref=e107]: Join thousands of curious people who use Discover to find their next favorite event.
+    - link "Get Started — It's Free" [ref=e108] [cursor=pointer]:
+      - /url: "#"
+  - contentinfo [ref=e109]:
+    - generic [ref=e110]:
+      - generic [ref=e111]: discover.
+      - generic [ref=e112]:
+        - link "Privacy" [ref=e113] [cursor=pointer]:
+          - /url: "#"
+        - link "Terms" [ref=e114] [cursor=pointer]:
+          - /url: "#"
+        - link "Contact" [ref=e115] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e116]: © 2026 Discover. All rights reserved.
