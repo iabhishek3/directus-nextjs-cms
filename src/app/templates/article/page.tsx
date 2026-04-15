@@ -389,7 +389,6 @@ export default function ArticleTemplate() {
           <a href="/templates" style={{ fontSize: 13, color: t.accent, textDecoration: "none", fontWeight: 600 }}>Back to Templates</a>
         </div>
       </footer>
-<<<<<<< HEAD
 
       <EditMode />
 
@@ -428,9 +427,6 @@ export default function ArticleTemplate() {
           }
         }
       `}</style>
-=======
-      <EditMode />
->>>>>>> 08ff0a9c69eeb8c9c2d6708577da4fc13d27afac
     </div>
   );
 }
