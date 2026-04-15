@@ -150,7 +150,7 @@
       "text": "",
       "showLogo": true,
       "logoSrc": "/htx-logo.png",
-      "logoSize": 44,
+      "logoSize": 48,
       "fontSize": 20,
       "fontWeight": 700,
       "letterSpacing": "-0.02em"
@@ -486,7 +486,7 @@
       "text": "",
       "showLogo": true,
       "logoSrc": "/htx-logo.png",
-      "logoSize": 40,
+      "logoSize": 48,
       "fontSize": 18,
       "fontWeight": 700,
       "tagline": "The modern platform for teams who ship fast."

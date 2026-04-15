@@ -238,7 +238,7 @@ export default function LandingPage() {
         <div className="lp-nav-inner" style={{ maxWidth: layout.maxWidth, margin: "0 auto", padding: `0 ${layout.horizontalPadding}px`, display: "flex", alignItems: "center", justifyContent: "space-between", height: nc.height }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             {nc.brand.showLogo && (
-              <img src={nc.brand.logoSrc} alt={nc.brand.text} style={{ width: nc.brand.logoSize, height: nc.brand.logoSize, borderRadius: 8 }} />
+              <img src={nc.brand.logoSrc} alt={nc.brand.text || "Logo"} style={{ height: nc.brand.logoSize, objectFit: "contain" }} />
             )}
             <span style={{ fontSize: nc.brand.fontSize, fontWeight: nc.brand.fontWeight, letterSpacing: nc.brand.letterSpacing, color: t.text }}>
               {nc.brand.text}
@@ -820,7 +820,7 @@ export default function LandingPage() {
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
                 {ft.brand.showLogo && (
-                  <img src={ft.brand.logoSrc} alt={ft.brand.text} style={{ width: ft.brand.logoSize, height: ft.brand.logoSize, borderRadius: 6 }} />
+                  <img src={ft.brand.logoSrc} alt={ft.brand.text || "Logo"} style={{ height: ft.brand.logoSize, objectFit: "contain" }} />
                 )}
                 <span style={{ fontSize: ft.brand.fontSize, fontWeight: ft.brand.fontWeight, color: t.footerBrandText }}>
                   {ft.brand.text}

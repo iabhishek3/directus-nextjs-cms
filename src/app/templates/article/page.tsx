@@ -126,7 +126,7 @@ export default function ArticleTemplate() {
         background: t.navBg, backdropFilter: "blur(20px)",
         borderBottom: `1px solid ${t.navBorder}`,
       }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
+        <div className="art-nav-inner" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
           <a href="/templates"><img src="/htx-logo.png" alt="Logo" style={{ height: 48, objectFit: "contain" }} /></a>
           <div style={{ display: "flex", alignItems: "center", gap: 20, fontFamily: "system-ui, sans-serif" }}>
             <button
@@ -146,6 +146,7 @@ export default function ArticleTemplate() {
 
       {/* Article header */}
       <header
+        className="art-header"
         data-directus-collection="hero_section"
         data-directus-id="1"
         style={{ maxWidth: 720, margin: "0 auto", padding: "64px 24px 0" }}
@@ -161,10 +162,10 @@ export default function ArticleTemplate() {
           <span style={{ fontSize: 13, color: t.textMuted }}>{article.readTime}</span>
         </div>
 
-        <h1 style={{ fontSize: 44, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.15, color: t.text, marginBottom: 16 }}>
+        <h1 className="art-title" style={{ fontSize: 44, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.15, color: t.text, marginBottom: 16 }}>
           {heroTitle}
         </h1>
-        <p style={{ fontSize: 22, color: t.textSecondary, lineHeight: 1.6, marginBottom: 32 }}>
+        <p className="art-subtitle" style={{ fontSize: 22, color: t.textSecondary, lineHeight: 1.6, marginBottom: 32 }}>
           {heroSubtitle}
         </p>
 
@@ -185,10 +186,10 @@ export default function ArticleTemplate() {
       </header>
 
       {/* Content area with TOC sidebar */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px", display: "flex", gap: 64 }}>
+      <div className="art-content-wrapper" style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px", display: "flex", justifyContent: "center", gap: 64 }}>
 
         {/* Main content */}
-        <article style={{ flex: 1, maxWidth: 720, fontSize: 18, lineHeight: 1.8, color: t.textSecondary }}>
+        <article className="art-main" style={{ flex: "0 1 720px", maxWidth: 720, fontSize: 18, lineHeight: 1.8, color: t.textSecondary }}>
 
           <section id="intro">
             <p style={{ marginBottom: 24 }}>
@@ -208,7 +209,7 @@ export default function ArticleTemplate() {
             </p>
 
             {/* Stats callout */}
-            <div style={{
+            <div className="art-stats-grid" style={{
               display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, margin: "32px 0",
               fontFamily: "system-ui, sans-serif",
             }}>
@@ -341,7 +342,7 @@ export default function ArticleTemplate() {
         </article>
 
         {/* Sidebar TOC */}
-        <aside style={{ width: 240, flexShrink: 0, fontFamily: "system-ui, sans-serif", position: "sticky", top: 96, alignSelf: "flex-start" }}>
+        <aside className="art-sidebar" style={{ width: 240, flexShrink: 0, fontFamily: "system-ui, sans-serif", position: "sticky", top: 96, alignSelf: "flex-start" }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: t.textMuted, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 16 }}>
             On this page
           </div>
@@ -397,11 +398,47 @@ export default function ArticleTemplate() {
 
       {/* Footer */}
       <footer style={{ borderTop: `1px solid ${t.sectionBorder}`, padding: "32px 0", background: t.footerBg, fontFamily: "system-ui, sans-serif" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="art-footer-inner" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: 13, color: t.textFaint }}>&copy; 2026 Article. All rights reserved.</span>
           <a href="/templates" style={{ fontSize: 13, color: t.accent, textDecoration: "none", fontWeight: 600 }}>Back to Templates</a>
         </div>
       </footer>
+
+      <style>{`
+        /* ── Tablet (<=820px) ── */
+        @media (max-width: 820px) {
+          .art-nav-inner { padding: 0 20px !important; }
+          .art-header { padding: 48px 20px 0 !important; }
+          .art-title { font-size: 36px !important; }
+          .art-subtitle { font-size: 19px !important; }
+
+          .art-content-wrapper { padding: 36px 20px !important; gap: 0 !important; }
+          .art-sidebar { display: none !important; }
+          .art-main { flex: 1 1 100% !important; max-width: 100% !important; }
+
+          .art-footer-inner { padding: 0 20px !important; }
+        }
+
+        /* ── Mobile (<=640px) ── */
+        @media (max-width: 640px) {
+          .art-nav-inner { padding: 0 16px !important; }
+          .art-header { padding: 32px 16px 0 !important; }
+          .art-title { font-size: 28px !important; }
+          .art-subtitle { font-size: 17px !important; }
+
+          .art-content-wrapper { padding: 28px 16px !important; }
+          .art-main { font-size: 16px !important; }
+
+          .art-stats-grid { grid-template-columns: 1fr !important; }
+
+          .art-footer-inner {
+            flex-direction: column !important;
+            gap: 12px;
+            text-align: center;
+            padding: 0 16px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
