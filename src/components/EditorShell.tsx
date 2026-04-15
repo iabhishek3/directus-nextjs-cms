@@ -151,17 +151,8 @@ export default function EditorShell({ initialTemplate = "/templates/events" }: E
             flexShrink: 0,
           }}
         >
-          {/* Left: URL bar */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              flex: 1,
-              maxWidth: "500px",
-            }}
-          >
-            {/* Refresh button */}
+          {/* Left: Refresh */}
+          <div style={{ flex: 1, display: "flex", alignItems: "center" }}>
             <button
               onClick={() => {
                 const iframe = document.getElementById("preview-iframe") as HTMLIFrameElement;
@@ -174,34 +165,14 @@ export default function EditorShell({ initialTemplate = "/templates/events" }: E
                 color: "#d1d5db",
                 display: "flex",
                 alignItems: "center",
-                padding: "4px",
-                borderRadius: "4px",
+                padding: "6px",
+                borderRadius: "6px",
               }}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 2v6h-6M3 12a9 9 0 0115.5-6.36L21 8M3 22v-6h6M21 12a9 9 0 01-15.5 6.36L3 16" />
               </svg>
             </button>
-            {/* URL */}
-            <div
-              style={{
-                flex: 1,
-                background: "#111119",
-                borderRadius: "8px",
-                padding: "6px 12px",
-                fontSize: "12px",
-                color: "#ffffff",
-                fontFamily: "monospace",
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-              }}
-            >
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth={3}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-              localhost:3000{iframePath}
-            </div>
           </div>
 
           {/* Center: Device toggles */}
@@ -255,25 +226,25 @@ export default function EditorShell({ initialTemplate = "/templates/events" }: E
           </div>
 
           {/* Right: Open in new tab */}
-          <button
-            onClick={() => window.open(iframePath, "_blank")}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              color: "#d1d5db",
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              fontSize: "12px",
-              padding: "4px 8px",
-              borderRadius: "4px",
-            }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-            </svg>
-          </button>
+          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+            <button
+              onClick={() => window.open(iframePath, "_blank")}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                color: "#d1d5db",
+                display: "flex",
+                alignItems: "center",
+                padding: "6px",
+                borderRadius: "6px",
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Preview iframe container */}
