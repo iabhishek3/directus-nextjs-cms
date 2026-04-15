@@ -4,7 +4,6 @@
     "version": "1.0",
     "description": "RAG-powered natural language search over events collection"
   },
-
   "themes": {
     "default": "light",
     "dark": {
@@ -80,11 +79,9 @@
       "suggestionHoverBg": "#eef2ff"
     }
   },
-
   "fonts": {
     "primary": "'Inter', system-ui, -apple-system, sans-serif"
   },
-
   "nav": {
     "height": 64,
     "brand": {
@@ -96,8 +93,14 @@
       "letterSpacing": "-0.03em"
     },
     "links": [
-      { "label": "Search", "href": "#search" },
-      { "label": "Browse All", "href": "#" }
+      {
+        "label": "Search",
+        "href": "#search"
+      },
+      {
+        "label": "Browse All",
+        "href": "#"
+      }
     ],
     "themeToggle": {
       "width": 36,
@@ -108,13 +111,12 @@
       "lightIcon": "🌙"
     }
   },
-
   "hero": {
     "paddingTop": 140,
     "paddingBottom": 48,
     "maxWidth": 720,
     "badge": {
-      "text": "Powered by AI",
+      "text": "Power by AI RAG",
       "icon": "✨",
       "padding": "8px 18px",
       "borderRadius": 9999,
@@ -134,7 +136,6 @@
       "lineHeight": 1.7
     }
   },
-
   "search": {
     "maxWidth": 720,
     "inputPadding": "18px 24px 18px 52px",
@@ -147,7 +148,6 @@
     "buttonFontSize": 14,
     "buttonFontWeight": 600
   },
-
   "suggestions": {
     "title": "Popular searches",
     "titleSize": 13,
@@ -164,7 +164,6 @@
     "chipBorderRadius": 10,
     "chipFontSize": 13
   },
-
   "results": {
     "maxWidth": 720,
     "padding": "0 32px 80px",
@@ -187,7 +186,6 @@
       "categoryWeight": 600
     }
   },
-
   "summary": {
     "borderRadius": 16,
     "padding": "20px 24px",
@@ -198,7 +196,6 @@
     "labelSize": 12,
     "labelWeight": 700
   },
-
   "empty": {
     "icon": "🔍",
     "iconSize": 48,
@@ -210,13 +207,11 @@
     "padding": "64px 24px",
     "borderRadius": 20
   },
-
   "noResults": {
     "icon": "😔",
     "title": "No matching events found",
     "subtitle": "Try a different search or browse all events"
   },
-
   "footer": {
     "padding": "32px 0",
     "maxWidth": 720,
@@ -229,7 +224,6 @@
     "copyright": "© 2026 EventSearch. Powered by Directus + Claude AI.",
     "copyrightFontSize": 13
   },
-
   "loading": {
     "spinnerSize": 40,
     "spinnerBorderWidth": 3,
@@ -240,7 +234,6 @@
     "searchingText": "Searching with AI...",
     "searchingSubtext": "Analyzing events to find the best matches"
   },
-
   "layout": {
     "maxWidth": 1200,
     "horizontalPadding": 32

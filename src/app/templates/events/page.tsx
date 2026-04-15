@@ -109,6 +109,8 @@ export default function PreviewPage() {
   const fc = config.footer;
   const lc = config.loading;
   const layout = config.layout;
+  const sections = (config as Record<string, unknown>).sections as Record<string, { visible: boolean }> | undefined;
+  const isVisible = (name: string) => !sections || sections[name]?.visible !== false;
 
   /* ── Loading ── */
   if (loading) {
@@ -169,6 +171,7 @@ export default function PreviewPage() {
       </nav>
 
       {/* ── Hero ── */}
+      {isVisible("hero") && (
       <section
         data-directus-collection="hero_section"
         data-directus-id="1"
@@ -252,8 +255,10 @@ export default function PreviewPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ── Stats ── */}
+      {isVisible("stats") && (
       <section style={{ borderTop: `1px solid ${t.sectionBorder}`, borderBottom: `1px solid ${t.sectionBorder}`, background: t.statsBg, transition: "background 0.3s" }}>
         <div style={{ maxWidth: layout.maxWidth, margin: "0 auto", padding: sc.padding, display: "grid", gridTemplateColumns: `repeat(${sc.items.length}, 1fr)`, gap: 32, textAlign: "center" }}>
           {sc.items.map((s) => (
@@ -267,8 +272,10 @@ export default function PreviewPage() {
           ))}
         </div>
       </section>
+      )}
 
       {/* ── Events ── */}
+      {isVisible("events") && (
       <section id="events" style={{ maxWidth: layout.maxWidth, margin: "0 auto", padding: ec.padding }}>
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 48 }}>
           <div>
@@ -388,8 +395,10 @@ export default function PreviewPage() {
           </div>
         )}
       </section>
+      )}
 
       {/* ── CTA ── */}
+      {isVisible("cta") && (
       <section id="about" style={{ maxWidth: layout.maxWidth, margin: "0 auto", padding: cc.padding }}>
         <div style={{
           position: "relative", borderRadius: cc.box.borderRadius, overflow: "hidden",
@@ -424,6 +433,7 @@ export default function PreviewPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ── Footer ── */}
       <footer style={{ borderTop: `1px solid ${t.sectionBorder}`, padding: fc.padding, background: t.footerBg, transition: "background 0.3s" }}>

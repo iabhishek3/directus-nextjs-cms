@@ -463,6 +463,26 @@
     "text": "Loading experience...",
     "textSize": 14
   },
+  "sections": {
+    "nav": {
+      "visible": true
+    },
+    "hero": {
+      "visible": true
+    },
+    "stats": {
+      "visible": true
+    },
+    "events": {
+      "visible": false
+    },
+    "cta": {
+      "visible": true
+    },
+    "footer": {
+      "visible": true
+    }
+  },
   "layout": {
     "maxWidth": 1200,
     "horizontalPadding": 32

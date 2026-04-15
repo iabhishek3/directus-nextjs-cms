@@ -11,23 +11,63 @@ interface Message {
   timestamp: Date;
 }
 
-const INITIAL_MESSAGES: Message[] = [
-  {
-    id: "1",
-    role: "user",
-    content: "Create an event management platform with a modern UI that fetches data from Directus CMS.",
-    timestamp: new Date(Date.now() - 60000 * 5),
-  },
-  {
-    id: "2",
-    role: "assistant",
-    content:
-      "I've built the Discover event management platform with the following features:\n\n1. **Directus CMS integration** — events, categories, and hero section fetched from the API\n2. **Modern card-based UI** — responsive grid with color-coded categories\n3. **Dynamic hero section** — content managed from Directus singleton\n4. **Edit mode** — floating button enables element inspector to edit content in Directus\n5. **Live preview** — changes reflect in real-time",
-    reasoning:
-      "I'll create a Next.js app with Directus SDK integration. The app needs:\n\n1. Directus client with typed schema for events, categories, hero_section\n2. Server-side data fetching with force-dynamic rendering\n3. A clean, modern card layout for events\n4. Color coding by category type\n5. An element inspector for visual editing",
-    timestamp: new Date(Date.now() - 60000 * 4),
-  },
-];
+const TEMPLATE_MESSAGES: Record<string, Message[]> = {
+  events: [
+    {
+      id: "1",
+      role: "user",
+      content: "Create an event management platform with a modern UI that fetches data from Directus CMS.",
+      timestamp: new Date(Date.now() - 60000 * 5),
+    },
+    {
+      id: "2",
+      role: "assistant",
+      content:
+        "I've set up the Events Platform with:\n\n1. **Hero section** with animated title and CTA buttons\n2. **Stats bar** showing key metrics\n3. **CTA section** with call-to-action\n4. **Dark/light theme** toggle\n\nThe event listings section is ready but hidden. Ask me to **add the events list** when you're ready, or tell me to add/remove any section.\n\nYou can also customize colors, fonts, text, and styles — just ask!",
+      reasoning:
+        "Created a Next.js app with Directus SDK integration. The entire UI is driven by config.json with section visibility flags, so the agent can show/hide sections and update styles without touching code.",
+      timestamp: new Date(Date.now() - 60000 * 4),
+    },
+  ],
+  article: [
+    {
+      id: "1",
+      role: "user",
+      content: "Create a clean article template with rich typography and a table of contents sidebar.",
+      timestamp: new Date(Date.now() - 60000 * 5),
+    },
+    {
+      id: "2",
+      role: "assistant",
+      content:
+        "I've built the Article template with:\n\n1. **Rich typography** — Georgia serif font with comfortable reading width\n2. **Sticky TOC sidebar** — jump to any section\n3. **Author card** — avatar, name, and role\n4. **Code blocks & blockquotes** — styled for technical content\n5. **Related articles** — sidebar recommendations",
+      reasoning:
+        "Designed a long-form reading experience with a 720px content column, sticky sidebar navigation, and dark/light theme support.",
+      timestamp: new Date(Date.now() - 60000 * 4),
+    },
+  ],
+  search: [
+    {
+      id: "1",
+      role: "user",
+      content: "Build a RAG-powered natural language search over the events collection.",
+      timestamp: new Date(Date.now() - 60000 * 5),
+    },
+    {
+      id: "2",
+      role: "assistant",
+      content:
+        "I've built the AI Event Search with:\n\n1. **RAG search** — fetches all events from Directus, sends to Claude as context\n2. **Natural language queries** — ask things like \"free events this weekend\" or \"tech workshops\"\n3. **AI summary** — Claude explains why events matched your query\n4. **Ranked results** — events ordered by relevance with category tags\n5. **Suggestion chips** — quick search ideas to get started",
+      reasoning:
+        "Implemented retrieval-augmented generation: fetch events from Directus → build context → Claude ranks and summarizes matches. Current date is injected so time-based queries work correctly.",
+      timestamp: new Date(Date.now() - 60000 * 4),
+    },
+  ],
+};
+
+function getInitialMessages(templateId: string): Message[] {
+  return TEMPLATE_MESSAGES[templateId] || TEMPLATE_MESSAGES.events;
+}
 
 export interface TemplateOption {
   id: string;
@@ -49,7 +89,7 @@ interface ChatPanelProps {
 }
 
 export default function ChatPanel({ editRequest, onEditRequestHandled, currentTemplate, onTemplateChange }: ChatPanelProps) {
-  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
+  const [messages, setMessages] = useState<Message[]>(getInitialMessages(TEMPLATES.find((t) => t.route === currentTemplate)?.id || "events"));
   const [input, setInput] = useState("");
   const [isThinking, setIsThinking] = useState(false);
   const [expandedReasoning, setExpandedReasoning] = useState<Set<string>>(new Set());
@@ -59,6 +99,12 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const activeTemplate = TEMPLATES.find((t) => t.route === currentTemplate) || TEMPLATES[0];
+
+  // Reset messages when template changes
+  useEffect(() => {
+    setMessages(getInitialMessages(activeTemplate.id));
+    setElementContext(null);
+  }, [activeTemplate.id]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
