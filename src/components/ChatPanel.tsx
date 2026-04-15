@@ -38,6 +38,7 @@ export interface TemplateOption {
 export const TEMPLATES: TemplateOption[] = [
   { id: "events", name: "Events Platform", route: "/templates/events" },
   { id: "article", name: "Article", route: "/templates/article" },
+  { id: "search", name: "AI Event Search", route: "/templates/search" },
 ];
 
 interface ChatPanelProps {
@@ -254,10 +255,7 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
         }}
       >
         {/* App name */}
-        <span style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.03em" }}>
-          <span style={{ color: "#7c3aed" }}>DirectusAI</span>
-          <span style={{ color: "#a1a1aa", fontWeight: 500 }}> Studio</span>
-        </span>
+        <a href="/templates"><img src="/logo.jpg" alt="Temus" style={{ height: 40, objectFit: "contain", cursor: "pointer" }} /></a>
 
         {/* Template switcher */}
         <div style={{ position: "relative" }}>

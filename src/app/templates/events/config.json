@@ -253,7 +253,7 @@
     "maxWidth": 1200,
     "header": {
       "badgeText": "Upcoming",
-      "title": "Featured event in SG 60",
+      "title": "Featured event in SG",
       "titleSize": 36,
       "titleWeight": 800,
       "titleLetterSpacing": "-0.03em",
@@ -470,7 +470,6 @@
   "dateFormat": {
     "locale": "en-US",
     "dateOptions": {
-      "weekday": "short",
       "month": "short",
       "day": "numeric",
       "year": "numeric"

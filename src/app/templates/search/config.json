@@ -1,0 +1,248 @@
+{
+  "meta": {
+    "name": "AI Event Search",
+    "version": "1.0",
+    "description": "RAG-powered natural language search over events collection"
+  },
+
+  "themes": {
+    "default": "light",
+    "dark": {
+      "pageBg": "#0a0a0f",
+      "text": "#ffffff",
+      "textSecondary": "#a1a1aa",
+      "textMuted": "#71717a",
+      "textFaint": "#3f3f46",
+      "navBg": "rgba(10,10,15,0.88)",
+      "navBorder": "rgba(255,255,255,0.06)",
+      "cardBg": "rgba(255,255,255,0.04)",
+      "cardBorder": "rgba(255,255,255,0.08)",
+      "cardBorderHover": "#6366f1",
+      "cardHoverShadow": "0 16px 40px rgba(99,102,241,0.15)",
+      "cardShadow": "none",
+      "sectionBorder": "rgba(255,255,255,0.06)",
+      "accent": "#6366f1",
+      "accentLight": "rgba(99,102,241,0.12)",
+      "accentBorder": "rgba(99,102,241,0.25)",
+      "accentText": "#a5b4fc",
+      "searchBg": "rgba(255,255,255,0.05)",
+      "searchBorder": "rgba(255,255,255,0.1)",
+      "searchBorderFocus": "#6366f1",
+      "summaryBg": "rgba(99,102,241,0.08)",
+      "summaryBorder": "rgba(99,102,241,0.2)",
+      "summaryIcon": "#a5b4fc",
+      "tagBg": "rgba(255,255,255,0.06)",
+      "tagText": "#a1a1aa",
+      "footerBg": "#050508",
+      "primaryBtnBg": "#6366f1",
+      "primaryBtnText": "#ffffff",
+      "primaryBtnShadow": "0 4px 16px rgba(99,102,241,0.35)",
+      "emptyBg": "rgba(255,255,255,0.02)",
+      "emptyBorder": "rgba(255,255,255,0.08)",
+      "suggestionBg": "rgba(255,255,255,0.04)",
+      "suggestionBorder": "rgba(255,255,255,0.08)",
+      "suggestionHoverBg": "rgba(99,102,241,0.08)"
+    },
+    "light": {
+      "pageBg": "#fafafa",
+      "text": "#18181b",
+      "textSecondary": "#52525b",
+      "textMuted": "#a1a1aa",
+      "textFaint": "#d4d4d8",
+      "navBg": "rgba(255,255,255,0.92)",
+      "navBorder": "#e4e4e7",
+      "cardBg": "#ffffff",
+      "cardBorder": "#e4e4e7",
+      "cardBorderHover": "#6366f1",
+      "cardHoverShadow": "0 16px 40px rgba(0,0,0,0.08)",
+      "cardShadow": "0 1px 3px rgba(0,0,0,0.04)",
+      "sectionBorder": "#f4f4f5",
+      "accent": "#6366f1",
+      "accentLight": "#eef2ff",
+      "accentBorder": "#c7d2fe",
+      "accentText": "#6366f1",
+      "searchBg": "#ffffff",
+      "searchBorder": "#e4e4e7",
+      "searchBorderFocus": "#6366f1",
+      "summaryBg": "#eef2ff",
+      "summaryBorder": "#c7d2fe",
+      "summaryIcon": "#6366f1",
+      "tagBg": "#f4f4f5",
+      "tagText": "#52525b",
+      "footerBg": "#ffffff",
+      "primaryBtnBg": "#6366f1",
+      "primaryBtnText": "#ffffff",
+      "primaryBtnShadow": "0 4px 16px rgba(99,102,241,0.25)",
+      "emptyBg": "#f4f4f5",
+      "emptyBorder": "#e4e4e7",
+      "suggestionBg": "#ffffff",
+      "suggestionBorder": "#e4e4e7",
+      "suggestionHoverBg": "#eef2ff"
+    }
+  },
+
+  "fonts": {
+    "primary": "'Inter', system-ui, -apple-system, sans-serif"
+  },
+
+  "nav": {
+    "height": 64,
+    "brand": {
+      "text": "EventSearch",
+      "accentDot": true,
+      "accentColor": "#6366f1",
+      "fontSize": 22,
+      "fontWeight": 800,
+      "letterSpacing": "-0.03em"
+    },
+    "links": [
+      { "label": "Search", "href": "#search" },
+      { "label": "Browse All", "href": "#" }
+    ],
+    "themeToggle": {
+      "width": 36,
+      "height": 36,
+      "borderRadius": 8,
+      "fontSize": 16,
+      "darkIcon": "☀️",
+      "lightIcon": "🌙"
+    }
+  },
+
+  "hero": {
+    "paddingTop": 140,
+    "paddingBottom": 48,
+    "maxWidth": 720,
+    "badge": {
+      "text": "Powered by AI",
+      "icon": "✨",
+      "padding": "8px 18px",
+      "borderRadius": 9999,
+      "fontSize": 13
+    },
+    "title": {
+      "text": "Ask anything about events",
+      "fontSize": "clamp(36px, 5vw, 56px)",
+      "fontWeight": 800,
+      "letterSpacing": "-0.04em",
+      "lineHeight": 1.1
+    },
+    "subtitle": {
+      "text": "Search using natural language. Our AI finds the most relevant events for you.",
+      "fontSize": 18,
+      "marginTop": 20,
+      "lineHeight": 1.7
+    }
+  },
+
+  "search": {
+    "maxWidth": 720,
+    "inputPadding": "18px 24px 18px 52px",
+    "inputFontSize": 16,
+    "inputBorderRadius": 16,
+    "inputPlaceholder": "Try \"tech conferences near me\" or \"free workshops this month\"...",
+    "buttonText": "Search",
+    "buttonPadding": "12px 28px",
+    "buttonBorderRadius": 12,
+    "buttonFontSize": 14,
+    "buttonFontWeight": 600
+  },
+
+  "suggestions": {
+    "title": "Popular searches",
+    "titleSize": 13,
+    "titleWeight": 600,
+    "items": [
+      "Free events this week",
+      "Tech conferences",
+      "Design workshops",
+      "Events under $50",
+      "Networking meetups",
+      "AI and machine learning"
+    ],
+    "chipPadding": "8px 16px",
+    "chipBorderRadius": 10,
+    "chipFontSize": 13
+  },
+
+  "results": {
+    "maxWidth": 720,
+    "padding": "0 32px 80px",
+    "card": {
+      "borderRadius": 16,
+      "padding": "24px",
+      "gap": 16,
+      "titleSize": 18,
+      "titleWeight": 700,
+      "descriptionSize": 14,
+      "descriptionLineHeight": 1.7,
+      "descriptionMaxLength": 150,
+      "metaFontSize": 13,
+      "metaIconSize": 14,
+      "priceSize": 18,
+      "priceWeight": 800,
+      "categoryPadding": "4px 10px",
+      "categoryBorderRadius": 6,
+      "categoryFontSize": 11,
+      "categoryWeight": 600
+    }
+  },
+
+  "summary": {
+    "borderRadius": 16,
+    "padding": "20px 24px",
+    "iconSize": 20,
+    "textSize": 15,
+    "textLineHeight": 1.7,
+    "label": "AI Summary",
+    "labelSize": 12,
+    "labelWeight": 700
+  },
+
+  "empty": {
+    "icon": "🔍",
+    "iconSize": 48,
+    "title": "Search for events",
+    "titleSize": 20,
+    "titleWeight": 600,
+    "subtitle": "Type a question or use one of the suggestions above",
+    "subtitleSize": 14,
+    "padding": "64px 24px",
+    "borderRadius": 20
+  },
+
+  "noResults": {
+    "icon": "😔",
+    "title": "No matching events found",
+    "subtitle": "Try a different search or browse all events"
+  },
+
+  "footer": {
+    "padding": "32px 0",
+    "maxWidth": 720,
+    "brand": {
+      "text": "EventSearch",
+      "accentColor": "#6366f1",
+      "fontSize": 16,
+      "fontWeight": 800
+    },
+    "copyright": "© 2026 EventSearch. Powered by Directus + Claude AI.",
+    "copyrightFontSize": 13
+  },
+
+  "loading": {
+    "spinnerSize": 40,
+    "spinnerBorderWidth": 3,
+    "spinnerTrackColor": "rgba(99,102,241,0.2)",
+    "spinnerActiveColor": "#6366f1",
+    "text": "Loading...",
+    "textSize": 14,
+    "searchingText": "Searching with AI...",
+    "searchingSubtext": "Analyzing events to find the best matches"
+  },
+
+  "layout": {
+    "maxWidth": 1200,
+    "horizontalPadding": 32
+  }
+}

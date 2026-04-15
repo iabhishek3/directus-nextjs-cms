@@ -127,9 +127,7 @@ export default function ArticleTemplate() {
         borderBottom: `1px solid ${t.navBorder}`,
       }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
-          <a href="/templates" style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.03em", textDecoration: "none", fontFamily: "system-ui, sans-serif", color: t.text }}>
-            Article<span style={{ color: t.accent }}>.</span>
-          </a>
+          <a href="/templates"><img src="/htx-logo.png" alt="Logo" style={{ height: 48, objectFit: "contain" }} /></a>
           <div style={{ display: "flex", alignItems: "center", gap: 20, fontFamily: "system-ui, sans-serif" }}>
             <button
               onClick={() => setTheme(isDark ? "light" : "dark")}

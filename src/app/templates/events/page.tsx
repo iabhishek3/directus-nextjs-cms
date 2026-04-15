@@ -139,9 +139,7 @@ export default function PreviewPage() {
         transition: "background 0.3s, border-color 0.3s",
       }}>
         <div style={{ maxWidth: layout.maxWidth, margin: "0 auto", padding: `0 ${layout.horizontalPadding}px`, display: "flex", alignItems: "center", justifyContent: "space-between", height: nc.height }}>
-          <span style={{ fontSize: nc.brand.fontSize, fontWeight: nc.brand.fontWeight, letterSpacing: nc.brand.letterSpacing, color: t.text }}>
-            {nc.brand.text}{nc.brand.accentDot && <span style={{ color: nc.brand.accentColor }}>.</span>}
-          </span>
+          <a href="/templates"><img src="/htx-logo.png" alt="Logo" style={{ height: 48, objectFit: "contain" }} /></a>
           <div style={{ display: "flex", alignItems: "center", gap: 24, fontSize: 14 }}>
             {nc.links.map((link) => (
               <a key={link.label} href={link.href} style={{ color: t.textSecondary, textDecoration: "none" }}>{link.label}</a>

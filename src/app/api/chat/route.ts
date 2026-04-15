@@ -119,7 +119,7 @@ function buildSystemPrompt(
   templateConfig: Record<string, unknown> | null,
   templateName: string
 ): string {
-  let prompt = `You are a visual design assistant for the "${templateName}" template in DirectusAI Studio.
+  let prompt = `You are a visual design assistant for the "${templateName}" template in Agentic CMS.
 You can make TWO types of changes:
 
 1. **Template config (update_config)** — Change any visual/style property: colors, fonts, text, spacing, icons, labels, stats, nav, footer, etc. This is your PRIMARY tool. The entire template UI is driven by config.json.
