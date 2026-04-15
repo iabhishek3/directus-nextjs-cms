@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import EditMode from "@/components/EditMode";
 
 type Theme = "dark" | "light";
 
@@ -94,28 +95,13 @@ const relatedArticles = [
   { title: "From Notebook to Production in 30 Days", category: "Tutorial", readTime: "12 min", icon: "📓" },
 ];
 
-interface HeroSection {
-  title: string;
-  subtitle: string | null;
-  button_text: string | null;
-  button_link: string | null;
-}
-
 export default function ArticleTemplate() {
   const [theme, setTheme] = useState<Theme>("light");
-  const [hero, setHero] = useState<HeroSection | null>(null);
   const t = themes[theme];
   const isDark = theme === "dark";
 
-  useEffect(() => {
-    fetch(`/api/hero?_t=${Date.now()}`)
-      .then((res) => res.json())
-      .then((data) => setHero(data))
-      .catch(() => {});
-  }, []);
-
-  const heroTitle = hero?.title || article.title;
-  const heroSubtitle = hero?.subtitle || article.subtitle;
+  const heroTitle = article.title;
+  const heroSubtitle = article.subtitle;
 
   return (
     <div style={{ minHeight: "100vh", background: t.pageBg, color: t.text, fontFamily: "'Georgia', 'Times New Roman', serif", transition: "background 0.3s, color 0.3s" }}>
@@ -149,7 +135,7 @@ export default function ArticleTemplate() {
         className="art-header"
         data-directus-collection="hero_section"
         data-directus-id="1"
-        style={{ maxWidth: 720, margin: "0 auto", padding: "64px 24px 0" }}
+        style={{ maxWidth: 1024, margin: "0 auto", padding: "64px 24px 0" }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24, fontFamily: "system-ui, sans-serif" }}>
           <span style={{
@@ -186,10 +172,10 @@ export default function ArticleTemplate() {
       </header>
 
       {/* Content area with TOC sidebar */}
-      <div className="art-content-wrapper" style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px", display: "flex", justifyContent: "center", gap: 64 }}>
+      <div className="art-content-wrapper" style={{ maxWidth: 1024, margin: "0 auto", padding: "48px 24px", display: "flex", gap: 64 }}>
 
         {/* Main content */}
-        <article className="art-main" style={{ flex: "0 1 720px", maxWidth: 720, fontSize: 18, lineHeight: 1.8, color: t.textSecondary }}>
+        <article className="art-main" style={{ flex: 1, minWidth: 0, maxWidth: 720, fontSize: 18, lineHeight: 1.8, color: t.textSecondary }}>
 
           <section id="intro">
             <p style={{ marginBottom: 24 }}>
@@ -403,6 +389,8 @@ export default function ArticleTemplate() {
           <a href="/templates" style={{ fontSize: 13, color: t.accent, textDecoration: "none", fontWeight: 600 }}>Back to Templates</a>
         </div>
       </footer>
+
+      <EditMode />
 
       <style>{`
         /* ── Tablet (<=820px) ── */
