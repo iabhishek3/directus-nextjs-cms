@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import EditMode from "@/components/EditMode";
 import defaultConfig from "./config.json";
 
 type Theme = "dark" | "light";
@@ -440,6 +441,7 @@ export default function SearchTemplate() {
           color: ${t.accentText} !important;
         }
       `}</style>
+      <EditMode />
     </div>
   );
 }

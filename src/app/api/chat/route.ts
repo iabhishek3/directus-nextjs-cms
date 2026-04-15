@@ -159,7 +159,8 @@ IMPORTANT: Prefer update_config for visual/UI changes. Use update_directus only 
 - Only update what the user explicitly asks to change.
 - For color changes, use hex colors (e.g. #7c3aed) or rgba().
 - Be concise in your text responses.
-- You can make multiple updates in a single update_config call by passing multiple items in the updates array.`;
+- You can make multiple updates in a single update_config call by passing multiple items in the updates array.
+- **Section visibility**: The config has a "sections" object with visible flags (e.g. sections.events.visible, sections.stats.visible). To show/hide a section, set its visible flag to true/false. When a user asks to "add" a section, set its visible to true. When they ask to "remove" or "hide" a section, set it to false.`;
 
   return prompt;
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import EditMode from "@/components/EditMode";
 
 type Theme = "dark" | "light";
 
@@ -402,6 +403,7 @@ export default function ArticleTemplate() {
           <a href="/templates" style={{ fontSize: 13, color: t.accent, textDecoration: "none", fontWeight: 600 }}>Back to Templates</a>
         </div>
       </footer>
+      <EditMode />
     </div>
   );
 }
