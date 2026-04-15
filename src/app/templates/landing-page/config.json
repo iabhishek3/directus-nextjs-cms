@@ -1,0 +1,628 @@
+{
+  "meta": {
+    "name": "Landing Page",
+    "version": "1.0",
+    "description": "SaaS landing page with hero, features, pricing, and CTA"
+  },
+  "themes": {
+    "default": "light",
+    "dark": {
+      "pageBg": "#09090b",
+      "text": "#fafafa",
+      "textSecondary": "#a1a1aa",
+      "textMuted": "#71717a",
+      "textFaint": "#3f3f46",
+      "navBg": "rgba(9,9,11,0.85)",
+      "navBorder": "rgba(255,255,255,0.08)",
+      "heroBg": "#09090b",
+      "heroGradientFrom": "#09090b",
+      "heroGradientTo": "#18181b",
+      "badgeBg": "rgba(255,255,255,0.06)",
+      "badgeBorder": "rgba(255,255,255,0.1)",
+      "badgeText": "#a1a1aa",
+      "badgeDotColor": "#22c55e",
+      "primaryBtnBg": "#ffffff",
+      "primaryBtnText": "#09090b",
+      "primaryBtnShadow": "0 4px 16px rgba(255,255,255,0.1)",
+      "secondaryBtnBg": "transparent",
+      "secondaryBtnBorder": "rgba(255,255,255,0.2)",
+      "secondaryBtnText": "#fafafa",
+      "trustText": "#71717a",
+      "trustBoldText": "#a1a1aa",
+      "logoBg": "#18181b",
+      "logoBorder": "rgba(255,255,255,0.06)",
+      "logoText": "#71717a",
+      "logoLabelText": "#3f3f46",
+      "featureBg": "#18181b",
+      "featureBorder": "rgba(255,255,255,0.08)",
+      "featureIconBg": "rgba(255,255,255,0.06)",
+      "featureIconColor": "#a1a1aa",
+      "featureStatColor": "#fafafa",
+      "featureStatLabelColor": "#52525b",
+      "featureHighlightColor": "#22c55e",
+      "featureBadgeBg": "rgba(255,255,255,0.08)",
+      "featureBadgeText": "#a1a1aa",
+      "sectionBorder": "rgba(255,255,255,0.06)",
+      "pricingBg": "#09090b",
+      "pricingCardBg": "#18181b",
+      "pricingCardBorder": "rgba(255,255,255,0.08)",
+      "pricingPopularBorder": "#7c3aed",
+      "pricingPopularBadgeBg": "#7c3aed",
+      "pricingPopularBadgeText": "#ffffff",
+      "pricingToggleBg": "rgba(255,255,255,0.06)",
+      "pricingToggleActiveBg": "#ffffff",
+      "pricingToggleActiveText": "#09090b",
+      "pricingToggleText": "#71717a",
+      "pricingCheckColor": "#22c55e",
+      "pricingBtnBg": "rgba(255,255,255,0.06)",
+      "pricingBtnBorder": "rgba(255,255,255,0.1)",
+      "pricingBtnText": "#fafafa",
+      "pricingPopularBtnBg": "#ffffff",
+      "pricingPopularBtnText": "#09090b",
+      "ctaBg": "#09090b",
+      "ctaText": "#fafafa",
+      "ctaSubtext": "#a1a1aa",
+      "ctaNoteText": "#52525b",
+      "footerBg": "#09090b",
+      "footerBorder": "rgba(255,255,255,0.06)",
+      "footerText": "#52525b",
+      "footerLinkText": "#71717a",
+      "footerBrandText": "#fafafa",
+      "footerStatusDot": "#22c55e",
+      "footerStatusText": "#71717a"
+    },
+    "light": {
+      "pageBg": "#ffffff",
+      "text": "#09090b",
+      "textSecondary": "#52525b",
+      "textMuted": "#71717a",
+      "textFaint": "#a1a1aa",
+      "navBg": "rgba(255,255,255,0.92)",
+      "navBorder": "#e4e4e7",
+      "heroBg": "#ffffff",
+      "heroGradientFrom": "#ffffff",
+      "heroGradientTo": "#f4f4f5",
+      "badgeBg": "#f4f4f5",
+      "badgeBorder": "#e4e4e7",
+      "badgeText": "#52525b",
+      "badgeDotColor": "#22c55e",
+      "primaryBtnBg": "#09090b",
+      "primaryBtnText": "#ffffff",
+      "primaryBtnShadow": "0 4px 16px rgba(0,0,0,0.12)",
+      "secondaryBtnBg": "transparent",
+      "secondaryBtnBorder": "#d4d4d8",
+      "secondaryBtnText": "#09090b",
+      "trustText": "#a1a1aa",
+      "trustBoldText": "#52525b",
+      "logoBg": "#f9fafb",
+      "logoBorder": "#e4e4e7",
+      "logoText": "#a1a1aa",
+      "logoLabelText": "#d4d4d8",
+      "featureBg": "#f9fafb",
+      "featureBorder": "#e4e4e7",
+      "featureIconBg": "#f4f4f5",
+      "featureIconColor": "#52525b",
+      "featureStatColor": "#18181b",
+      "featureStatLabelColor": "#a1a1aa",
+      "featureHighlightColor": "#22c55e",
+      "featureBadgeBg": "#f4f4f5",
+      "featureBadgeText": "#71717a",
+      "sectionBorder": "#e4e4e7",
+      "pricingBg": "#ffffff",
+      "pricingCardBg": "#f9fafb",
+      "pricingCardBorder": "#e4e4e7",
+      "pricingPopularBorder": "#7c3aed",
+      "pricingPopularBadgeBg": "#7c3aed",
+      "pricingPopularBadgeText": "#ffffff",
+      "pricingToggleBg": "#f4f4f5",
+      "pricingToggleActiveBg": "#09090b",
+      "pricingToggleActiveText": "#ffffff",
+      "pricingToggleText": "#71717a",
+      "pricingCheckColor": "#22c55e",
+      "pricingBtnBg": "#ffffff",
+      "pricingBtnBorder": "#d4d4d8",
+      "pricingBtnText": "#09090b",
+      "pricingPopularBtnBg": "#09090b",
+      "pricingPopularBtnText": "#ffffff",
+      "ctaBg": "#ffffff",
+      "ctaText": "#09090b",
+      "ctaSubtext": "#52525b",
+      "ctaNoteText": "#a1a1aa",
+      "footerBg": "#09090b",
+      "footerBorder": "rgba(255,255,255,0.06)",
+      "footerText": "#52525b",
+      "footerLinkText": "#71717a",
+      "footerBrandText": "#fafafa",
+      "footerStatusDot": "#22c55e",
+      "footerStatusText": "#71717a"
+    }
+  },
+  "fonts": {
+    "primary": "'Inter', system-ui, -apple-system, sans-serif"
+  },
+  "layout": {
+    "maxWidth": 1200,
+    "horizontalPadding": 32
+  },
+  "nav": {
+    "height": 64,
+    "brand": {
+      "text": "",
+      "showLogo": true,
+      "logoSrc": "/htx-logo.png",
+      "logoSize": 44,
+      "fontSize": 20,
+      "fontWeight": 700,
+      "letterSpacing": "-0.02em"
+    },
+    "links": [
+      {
+        "label": "Features",
+        "href": "#features"
+      },
+      {
+        "label": "Pricing",
+        "href": "#pricing"
+      },
+      {
+        "label": "Docs",
+        "href": "#"
+      },
+      {
+        "label": "Blog",
+        "href": "#"
+      }
+    ],
+    "signIn": {
+      "text": "Sign In",
+      "href": "#"
+    },
+    "ctaButton": {
+      "text": "Get Started",
+      "href": "#",
+      "fontSize": 14,
+      "fontWeight": 600,
+      "padding": "8px 20px",
+      "borderRadius": 8
+    },
+    "themeToggle": {
+      "width": 36,
+      "height": 36,
+      "borderRadius": 8,
+      "fontSize": 16,
+      "darkIcon": "sun",
+      "lightIcon": "moon"
+    }
+  },
+  "hero": {
+    "paddingTop": 140,
+    "paddingBottom": 80,
+    "badge": {
+      "text": "Now in Public Beta",
+      "padding": "8px 20px",
+      "borderRadius": 9999,
+      "fontSize": 14,
+      "dotSize": 8,
+      "dotColor": "#22c55e"
+    },
+    "title": {
+      "line1": "Ship faster.",
+      "line2": "Scale smarter.",
+      "fontSize": "clamp(48px, 7vw, 80px)",
+      "fontWeight": 800,
+      "letterSpacing": "-0.04em",
+      "lineHeight": 1.05,
+      "gradientEnabled": true,
+      "gradientFrom": "#a1a1aa",
+      "gradientTo": "#52525b"
+    },
+    "subtitle": {
+      "text": "The modern platform for teams who ship fast. Built for scale, designed for speed. Everything you need to build, deploy, and grow.",
+      "fontSize": 18,
+      "maxWidth": 560,
+      "marginTop": 28,
+      "lineHeight": 1.7
+    },
+    "buttons": {
+      "gap": 16,
+      "marginTop": 40,
+      "primary": {
+        "text": "Start Building",
+        "href": "#",
+        "showArrow": true,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "padding": "14px 32px",
+        "borderRadius": 10
+      },
+      "secondary": {
+        "text": "View Demo",
+        "href": "#",
+        "fontSize": 16,
+        "fontWeight": 500,
+        "padding": "14px 32px",
+        "borderRadius": 10
+      }
+    },
+    "avatars": {
+      "show": true,
+      "marginTop": 48,
+      "count": 5,
+      "size": 36,
+      "overlap": -8,
+      "colors": [
+        "#7c3aed",
+        "#2563eb",
+        "#059669",
+        "#d97706",
+        "#dc2626"
+      ]
+    },
+    "trust": {
+      "text": "Trusted by",
+      "boldText": "2,000+",
+      "suffix": "teams worldwide",
+      "fontSize": 14
+    }
+  },
+  "logoBar": {
+    "label": "TRUSTED BY INDUSTRY LEADERS",
+    "labelFontSize": 12,
+    "labelLetterSpacing": "0.1em",
+    "labelFontWeight": 600,
+    "padding": "64px 32px",
+    "logos": [
+      {
+        "name": "Notion",
+        "initial": "N"
+      },
+      {
+        "name": "Figma",
+        "initial": "F"
+      },
+      {
+        "name": "Slack",
+        "initial": "S"
+      },
+      {
+        "name": "Discord",
+        "initial": "D"
+      },
+      {
+        "name": "GitHub",
+        "initial": "G"
+      },
+      {
+        "name": "Vercel",
+        "initial": "V"
+      }
+    ],
+    "logoFontSize": 16,
+    "logoFontWeight": 600,
+    "gap": 64
+  },
+  "features": {
+    "padding": "100px 32px",
+    "title": "Everything you need to ship",
+    "titleSize": 40,
+    "titleWeight": 800,
+    "titleLetterSpacing": "-0.03em",
+    "subtitle": "Built for modern teams. Powerful features that help you build, deploy, and scale faster than ever.",
+    "subtitleSize": 18,
+    "subtitleMaxWidth": 560,
+    "cards": [
+      {
+        "id": "monitoring",
+        "title": "Real-time Monitoring",
+        "description": "Track system health, performance metrics, and alerts in real-time across all your deployments.",
+        "icon": "activity",
+        "span": 1,
+        "stats": [
+          {
+            "value": "92%",
+            "label": "CPU"
+          },
+          {
+            "value": "87%",
+            "label": "Memory"
+          },
+          {
+            "value": "67%",
+            "label": "Network"
+          },
+          {
+            "value": "90%",
+            "label": "Storage"
+          }
+        ],
+        "indicators": true
+      },
+      {
+        "id": "command",
+        "title": "Command Palette",
+        "description": "Navigate anywhere instantly with powerful keyboard shortcuts.",
+        "icon": "command",
+        "span": 1,
+        "shortcut": [
+          "Cmd",
+          "K"
+        ]
+      },
+      {
+        "id": "analytics",
+        "title": "Analytics",
+        "description": "Deep insights into your application performance.",
+        "icon": "bar-chart",
+        "span": 1,
+        "showChart": true
+      },
+      {
+        "id": "speed",
+        "title": "Blazing Fast",
+        "description": "Edge-optimized infrastructure for sub-50ms response times globally.",
+        "icon": "zap",
+        "span": 1,
+        "highlight": "~32ms",
+        "highlightLabel": "avg response"
+      },
+      {
+        "id": "security",
+        "title": "Enterprise Security",
+        "description": "SOC2 compliant with end-to-end encryption and SSO support.",
+        "icon": "shield",
+        "span": 1,
+        "badges": [
+          "SOC2",
+          "GDPR",
+          "HIPAA"
+        ]
+      }
+    ],
+    "cardBorderRadius": 16,
+    "cardPadding": "32px"
+  },
+  "pricing": {
+    "padding": "100px 32px",
+    "title": "Simple, transparent pricing",
+    "titleSize": 40,
+    "titleWeight": 800,
+    "titleLetterSpacing": "-0.03em",
+    "subtitle": "Start free, scale as you grow. No hidden fees, no surprises.",
+    "subtitleSize": 18,
+    "toggle": {
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "yearlyDiscount": "-20%"
+    },
+    "tiers": [
+      {
+        "name": "Starter",
+        "description": "Perfect for side projects and small teams",
+        "monthlyPrice": 0,
+        "yearlyPrice": 0,
+        "popular": false,
+        "cta": "Get Started",
+        "features": [
+          "3 team members",
+          "10 projects",
+          "Basic analytics",
+          "Community support",
+          "1GB storage"
+        ]
+      },
+      {
+        "name": "Pro",
+        "description": "For growing teams that need more power",
+        "monthlyPrice": 29,
+        "yearlyPrice": 23,
+        "popular": true,
+        "cta": "Start Free Trial",
+        "features": [
+          "Unlimited team members",
+          "Unlimited projects",
+          "Advanced analytics",
+          "Priority support",
+          "100GB storage",
+          "Custom domains",
+          "API access"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "description": "For organizations with advanced needs",
+        "monthlyPrice": 99,
+        "yearlyPrice": 79,
+        "popular": false,
+        "cta": "Contact Sales",
+        "features": [
+          "Everything in Pro",
+          "SSO & SAML",
+          "Dedicated support",
+          "SLA guarantee",
+          "Unlimited storage",
+          "Custom integrations",
+          "Audit logs"
+        ]
+      }
+    ],
+    "cardBorderRadius": 16,
+    "cardPadding": "40px"
+  },
+  "cta": {
+    "padding": "120px 32px",
+    "title": "Ready to ship faster?",
+    "titleSize": "clamp(36px, 5vw, 56px)",
+    "titleWeight": 800,
+    "titleLetterSpacing": "-0.03em",
+    "subtitle": "Join thousands of teams already building with HTX. Start free, no credit card required.",
+    "subtitleSize": 18,
+    "subtitleMaxWidth": 520,
+    "buttons": {
+      "gap": 16,
+      "marginTop": 40,
+      "primary": {
+        "text": "Get Started for Free",
+        "href": "#",
+        "showArrow": true,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "padding": "16px 36px",
+        "borderRadius": 10
+      },
+      "secondary": {
+        "text": "Talk to Sales",
+        "href": "#",
+        "fontSize": 16,
+        "fontWeight": 500,
+        "padding": "16px 36px",
+        "borderRadius": 10
+      }
+    },
+    "note": "Free forever for individuals. Team plans start at $29/month."
+  },
+  "footer": {
+    "padding": "64px 0 32px",
+    "brand": {
+      "text": "",
+      "showLogo": true,
+      "logoSrc": "/htx-logo.png",
+      "logoSize": 40,
+      "fontSize": 18,
+      "fontWeight": 700,
+      "tagline": "The modern platform for teams who ship fast."
+    },
+    "status": {
+      "show": true,
+      "text": "All Systems Operational",
+      "dotColor": "#22c55e"
+    },
+    "columns": [
+      {
+        "title": "Product",
+        "links": [
+          {
+            "label": "Features",
+            "href": "#features"
+          },
+          {
+            "label": "Pricing",
+            "href": "#pricing"
+          },
+          {
+            "label": "Changelog",
+            "href": "#"
+          },
+          {
+            "label": "Roadmap",
+            "href": "#"
+          },
+          {
+            "label": "API",
+            "href": "#"
+          }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "label": "Documentation",
+            "href": "#"
+          },
+          {
+            "label": "Guides",
+            "href": "#"
+          },
+          {
+            "label": "Blog",
+            "href": "#"
+          },
+          {
+            "label": "Community",
+            "href": "#"
+          },
+          {
+            "label": "Templates",
+            "href": "/templates"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "label": "About",
+            "href": "#"
+          },
+          {
+            "label": "Careers",
+            "href": "#"
+          },
+          {
+            "label": "Press",
+            "href": "#"
+          },
+          {
+            "label": "Partners",
+            "href": "#"
+          },
+          {
+            "label": "Contact",
+            "href": "#"
+          }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          {
+            "label": "Privacy",
+            "href": "#"
+          },
+          {
+            "label": "Terms",
+            "href": "#"
+          },
+          {
+            "label": "Security",
+            "href": "#"
+          },
+          {
+            "label": "Cookies",
+            "href": "#"
+          },
+          {
+            "label": "Licenses",
+            "href": "#"
+          }
+        ]
+      }
+    ],
+    "copyright": "© 2026 HTX, Inc. All rights reserved.",
+    "socialLinks": [
+      {
+        "label": "Twitter",
+        "href": "#"
+      },
+      {
+        "label": "GitHub",
+        "href": "#"
+      },
+      {
+        "label": "Discord",
+        "href": "#"
+      }
+    ]
+  },
+  "animations": {
+    "heroFadeIn": true,
+    "heroStaggerDelay": 150,
+    "featureRevealOnScroll": true,
+    "featureStaggerDelay": 100,
+    "counterAnimation": true,
+    "counterDuration": 2000,
+    "pricingRevealOnScroll": true,
+    "ctaFadeIn": true,
+    "logoBarSlide": true
+  }
+}
