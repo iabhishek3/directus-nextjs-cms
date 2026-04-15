@@ -1,0 +1,483 @@
+{
+  "meta": {
+    "name": "Events Platform",
+    "version": "1.0",
+    "description": "Event management template with listings and registration"
+  },
+  "themes": {
+    "default": "light",
+    "dark": {
+      "pageBg": "#0f0b1a",
+      "text": "#ffffff",
+      "textSecondary": "#a1a1aa",
+      "textMuted": "#71717a",
+      "textFaint": "#52525b",
+      "navBg": "rgba(15, 11, 26, 0.85)",
+      "navBorder": "rgba(255,255,255,0.06)",
+      "cardBg": "rgba(255,255,255,0.04)",
+      "cardBorder": "rgba(255,255,255,0.08)",
+      "cardBorderHover": "#7c3aed",
+      "cardNumberBg": "rgba(255,255,255,0.05)",
+      "cardNumberBorder": "rgba(255,255,255,0.08)",
+      "cardNumberText": "rgba(255,255,255,0.2)",
+      "sectionBorder": "rgba(255,255,255,0.06)",
+      "badgeBg": "rgba(124,58,237,0.12)",
+      "badgeBorder": "rgba(124,58,237,0.25)",
+      "badgeText": "#a78bfa",
+      "secondaryBtnBg": "rgba(255,255,255,0.05)",
+      "secondaryBtnBorder": "rgba(255,255,255,0.15)",
+      "secondaryBtnText": "#e4e4e7",
+      "ctaBg": "#808000",
+      "ctaBorder": "rgba(124,58,237,0.25)",
+      "ctaText": "#ffffff",
+      "ctaSubtext": "#a1a1aa",
+      "ctaPrimaryBtnBg": "#7c3aed",
+      "ctaPrimaryBtnText": "#ffffff",
+      "ctaSecondaryBtnBorder": "rgba(255,255,255,0.2)",
+      "ctaSecondaryBtnText": "#e4e4e7",
+      "ctaSecondaryBtnBg": "rgba(255,255,255,0.06)",
+      "footerBg": "#0a0816",
+      "emptyBg": "rgba(255,255,255,0.02)",
+      "emptyBorder": "rgba(255,255,255,0.1)",
+      "cardHoverShadow": "0 20px 48px rgba(124, 58, 237, 0.2)",
+      "cardShadow": "none",
+      "primaryBtnBg": "#7c3aed",
+      "primaryBtnShadow": "0 4px 16px rgba(124,58,237,0.35)",
+      "statsBg": "transparent"
+    },
+    "light": {
+      "pageBg": "#fafafa",
+      "text": "#18181b",
+      "textSecondary": "#52525b",
+      "textMuted": "#a1a1aa",
+      "textFaint": "#d4d4d8",
+      "navBg": "rgba(255,255,255,0.9)",
+      "navBorder": "#e4e4e7",
+      "cardBg": "#ffffff",
+      "cardBorder": "#e4e4e7",
+      "cardBorderHover": "#7c3aed",
+      "cardNumberBg": "#f4f4f5",
+      "cardNumberBorder": "#e4e4e7",
+      "cardNumberText": "#d4d4d8",
+      "sectionBorder": "#e4e4e7",
+      "badgeBg": "#f3f0ff",
+      "badgeBorder": "#ddd6fe",
+      "badgeText": "#7c3aed",
+      "secondaryBtnBg": "#ffffff",
+      "secondaryBtnBorder": "#d4d4d8",
+      "secondaryBtnText": "#3f3f46",
+      "ctaBg": "#808000",
+      "ctaBorder": "transparent",
+      "ctaText": "#ffffff",
+      "ctaSubtext": "rgba(255,255,255,0.75)",
+      "ctaPrimaryBtnBg": "#ffffff",
+      "ctaPrimaryBtnText": "#7c3aed",
+      "ctaSecondaryBtnBorder": "rgba(255,255,255,0.3)",
+      "ctaSecondaryBtnText": "#ffffff",
+      "ctaSecondaryBtnBg": "rgba(255,255,255,0.1)",
+      "footerBg": "#ffffff",
+      "emptyBg": "#f4f4f5",
+      "emptyBorder": "#e4e4e7",
+      "cardHoverShadow": "0 16px 48px rgba(0,0,0,0.1)",
+      "cardShadow": "0 1px 3px rgba(0,0,0,0.04)",
+      "primaryBtnBg": "#7c3aed",
+      "primaryBtnShadow": "0 4px 16px rgba(124,58,237,0.25)",
+      "statsBg": "#ffffff"
+    }
+  },
+  "fonts": {
+    "primary": "'Inter', system-ui, -apple-system, sans-serif"
+  },
+  "nav": {
+    "height": 72,
+    "brand": {
+      "text": "Events",
+      "accentDot": true,
+      "accentColor": "#7c3aed",
+      "fontSize": 22,
+      "fontWeight": 800,
+      "letterSpacing": "-0.03em"
+    },
+    "links": [
+      {
+        "label": "Events",
+        "href": "#events"
+      },
+      {
+        "label": "About us",
+        "href": "#about"
+      }
+    ],
+    "themeToggle": {
+      "width": 40,
+      "height": 40,
+      "borderRadius": 10,
+      "fontSize": 18,
+      "darkIcon": "☀️",
+      "lightIcon": "🌙"
+    },
+    "ctaButton": {
+      "text": "Get Started",
+      "href": "#",
+      "color": "#fff",
+      "fontSize": 14,
+      "fontWeight": 600,
+      "padding": "10px 24px",
+      "borderRadius": 10
+    }
+  },
+  "hero": {
+    "paddingTop": 160,
+    "paddingBottom": 100,
+    "maxWidth": 1200,
+    "defaults": {
+      "title": "Find events that inspire you",
+      "subtitle": "Curated conferences, workshops, and meetups from the world's best communities. All in one place.",
+      "buttonText": "Browse Events",
+      "buttonLink": "#events"
+    },
+    "liveBadge": {
+      "padding": "8px 20px",
+      "borderRadius": 9999,
+      "fontSize": 14,
+      "marginBottom": 40,
+      "dotSize": 8,
+      "dotColor": "#10b981",
+      "dotShadow": "0 0 8px #10b981",
+      "textWithEvents": "{count} events live now",
+      "textNoEvents": "Events coming soon"
+    },
+    "title": {
+      "fontSize": "clamp(44px, 6vw, 76px)",
+      "fontWeight": 800,
+      "letterSpacing": "-0.04em",
+      "lineHeight": 1.08,
+      "maxWidth": 900,
+      "animationEnabled": true,
+      "animationRepeatInterval": 10000
+    },
+    "subtitle": {
+      "fontSize": 20,
+      "maxWidth": 600,
+      "marginTop": 28,
+      "lineHeight": 1.7
+    },
+    "buttons": {
+      "gap": 16,
+      "marginTop": 48,
+      "primary": {
+        "fontSize": 16,
+        "fontWeight": 600,
+        "padding": "16px 36px",
+        "borderRadius": 12
+      },
+      "secondary": {
+        "text": "Learn More",
+        "href": "#about",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "padding": "16px 36px",
+        "borderRadius": 12
+      }
+    },
+    "backgroundImage": {
+      "textColor": "#fff",
+      "subtitleColor": "rgba(255,255,255,0.9)",
+      "textShadow": "0 2px 16px rgba(0,0,0,0.5)",
+      "subtitleTextShadow": "0 1px 8px rgba(0,0,0,0.4)",
+      "badgeBg": "rgba(0,0,0,0.3)",
+      "badgeBorderColor": "rgba(255,255,255,0.25)",
+      "primaryBtnBg": "#fff",
+      "primaryBtnColor": "#18181b",
+      "primaryBtnShadow": "0 4px 16px rgba(0,0,0,0.2)",
+      "secondaryBtnBorder": "rgba(255,255,255,0.4)",
+      "secondaryBtnColor": "#fff",
+      "secondaryBtnBg": "rgba(255,255,255,0.1)"
+    },
+    "darkModeGlow": [
+      {
+        "top": -100,
+        "left": "20%",
+        "width": 500,
+        "height": 500,
+        "color": "rgba(124,58,237,0.08)",
+        "blur": 120
+      },
+      {
+        "top": 80,
+        "right": "10%",
+        "width": 400,
+        "height": 400,
+        "color": "rgba(37,99,235,0.06)",
+        "blur": 120
+      }
+    ]
+  },
+  "stats": {
+    "padding": "56px 32px",
+    "items": [
+      {
+        "value": "12000+",
+        "label": "Attendees",
+        "icon": "👥",
+        "color": "#7c3aed"
+      },
+      {
+        "value": "120+",
+        "label": "Events",
+        "icon": "🎪",
+        "color": "#2563eb"
+      },
+      {
+        "value": "50+",
+        "label": "Cities",
+        "icon": "🌍",
+        "color": "#059669"
+      },
+      {
+        "value": "98%",
+        "label": "Satisfaction",
+        "icon": "⭐",
+        "color": "#d97706"
+      }
+    ],
+    "valueSize": 36,
+    "valueFontWeight": 800,
+    "valueLetterSpacing": "-0.03em",
+    "labelSize": 14,
+    "labelFontWeight": 500,
+    "iconSize": 28
+  },
+  "eventsSection": {
+    "padding": "80px 32px",
+    "maxWidth": 1200,
+    "header": {
+      "badgeText": "Upcoming",
+      "title": "Featured event in SG 60",
+      "titleSize": 36,
+      "titleWeight": 800,
+      "titleLetterSpacing": "-0.03em",
+      "subtitle": "Don't miss what's happening next",
+      "subtitleSize": 16,
+      "viewAllText": "View all",
+      "viewAllHref": "#"
+    },
+    "grid": {
+      "columns": 3,
+      "gap": 24
+    },
+    "card": {
+      "borderRadius": 16,
+      "colorBarHeight": 4,
+      "numberBadge": {
+        "top": 20,
+        "right": 20,
+        "size": 36,
+        "borderRadius": 10,
+        "fontSize": 14,
+        "fontWeight": 700,
+        "padStart": 2,
+        "padChar": "0"
+      },
+      "padding": "28px 28px 24px",
+      "category": {
+        "fontSize": 12,
+        "fontWeight": 700,
+        "padding": "5px 12px",
+        "borderRadius": 8,
+        "textTransform": "uppercase",
+        "letterSpacing": "0.04em"
+      },
+      "title": {
+        "fontSize": 20,
+        "fontWeight": 700,
+        "lineHeight": 1.3,
+        "marginBottom": 10
+      },
+      "description": {
+        "fontSize": 14,
+        "lineHeight": 1.7,
+        "marginBottom": 20,
+        "maxLength": 100
+      },
+      "meta": {
+        "fontSize": 13,
+        "iconSize": 14,
+        "gap": 10
+      },
+      "price": {
+        "fontSize": 22,
+        "fontWeight": 800,
+        "letterSpacing": "-0.02em",
+        "freeLabel": "Free",
+        "currencyPrefix": "$"
+      },
+      "capacity": {
+        "fontSize": 12,
+        "iconSize": 14,
+        "suffix": "spots"
+      }
+    },
+    "empty": {
+      "padding": "80px 20px",
+      "borderRadius": 20,
+      "icon": "🎪",
+      "iconSize": 48,
+      "title": "No events available yet",
+      "titleSize": 20,
+      "titleWeight": 600,
+      "subtitle": "Check back soon or add events in Directus.",
+      "subtitleSize": 14
+    }
+  },
+  "categories": {
+    "conference": {
+      "color": "#7c3aed",
+      "icon": "🎤"
+    },
+    "workshop": {
+      "color": "#2563eb",
+      "icon": "🛠"
+    },
+    "meetup": {
+      "color": "#059669",
+      "icon": "🤝"
+    },
+    "webinar": {
+      "color": "#d97706",
+      "icon": "🖥"
+    },
+    "design": {
+      "color": "#db2777",
+      "icon": "🎨"
+    },
+    "engineering": {
+      "color": "#2563eb",
+      "icon": "⚙️"
+    },
+    "business": {
+      "color": "#d97706",
+      "icon": "📊"
+    },
+    "ai": {
+      "color": "#7c3aed",
+      "icon": "🤖"
+    },
+    "creative": {
+      "color": "#db2777",
+      "icon": "✨"
+    },
+    "default": {
+      "color": "#0891b2",
+      "icon": "🎯"
+    },
+    "none": {
+      "color": "#6366f1",
+      "icon": "📌"
+    }
+  },
+  "cta": {
+    "maxWidth": 1200,
+    "padding": "0 32px 80px",
+    "box": {
+      "borderRadius": 24,
+      "padding": "80px 48px"
+    },
+    "icon": "🚀",
+    "iconSize": 56,
+    "iconMarginBottom": 24,
+    "title": "Ready to find your next event?",
+    "titleSize": "clamp(30px, 4vw, 48px)",
+    "titleWeight": 800,
+    "titleLetterSpacing": "-0.03em",
+    "subtitle": "Join thousands of curious people finding their next favorite event.",
+    "subtitleSize": 17,
+    "subtitleLineHeight": 1.7,
+    "subtitleMaxWidth": 520,
+    "buttonsMarginTop": 40,
+    "buttonsGap": 16,
+    "primaryButton": {
+      "text": "Get Started — It's Free",
+      "href": "#",
+      "fontSize": 16,
+      "fontWeight": 600,
+      "padding": "16px 36px",
+      "borderRadius": 12
+    },
+    "secondaryButton": {
+      "text": "Contact us now",
+      "href": "#",
+      "fontSize": 16,
+      "fontWeight": 600,
+      "padding": "16px 36px",
+      "borderRadius": 12
+    }
+  },
+  "footer": {
+    "padding": "48px 0",
+    "maxWidth": 1200,
+    "brand": {
+      "text": "Events",
+      "accentColor": "#7c3aed",
+      "fontSize": 18,
+      "fontWeight": 800
+    },
+    "links": [
+      {
+        "label": "Privacy",
+        "href": "#"
+      },
+      {
+        "label": "Terms",
+        "href": "#"
+      },
+      {
+        "label": "Contact",
+        "href": "#"
+      }
+    ],
+    "linksFontSize": 14,
+    "copyright": "© 2026 Events. All rights reserved.",
+    "copyrightFontSize": 13,
+    "socialLinks": [
+      {
+        "label": "Twitter",
+        "href": "#"
+      },
+      {
+        "label": "GitHub",
+        "href": "#"
+      },
+      {
+        "label": "Discord",
+        "href": "#"
+      }
+    ],
+    "socialFontSize": 13
+  },
+  "loading": {
+    "spinnerSize": 48,
+    "spinnerBorderWidth": 3,
+    "spinnerTrackColor": "rgba(124,58,237,0.2)",
+    "spinnerActiveColor": "#7c3aed",
+    "text": "Loading experience...",
+    "textSize": 14
+  },
+  "layout": {
+    "maxWidth": 1200,
+    "horizontalPadding": 32
+  },
+  "dateFormat": {
+    "locale": "en-US",
+    "dateOptions": {
+      "weekday": "short",
+      "month": "short",
+      "day": "numeric",
+      "year": "numeric"
+    },
+    "timeOptions": {
+      "hour": "numeric",
+      "minute": "2-digit"
+    }
+  }
+}

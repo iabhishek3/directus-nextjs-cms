@@ -7,11 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "setup": "tsx scripts/setup-directus.ts"
+    "setup": "tsx scripts/setup-directus.ts",
+    "seed": "tsx scripts/seed-events.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.88.0",
     "@directus/sdk": "^21.2.0",
     "@lifesg/react-design-system": "^3.3.0-canary.5",
+    "framer-motion": "^12.38.0",
     "next": "^15.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
