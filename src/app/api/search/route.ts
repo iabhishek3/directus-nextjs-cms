@@ -61,10 +61,16 @@ export async function POST(request: NextRequest) {
       .join("\n");
 
     // 3. Augmented Generation — Claude answers using events data
+    const now = new Date();
+    const currentDate = now.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+    const currentTime = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+
     const response = await anthropic.messages.create({
       model: "claude-sonnet-4-20250514",
       max_tokens: 1024,
       system: `You are a helpful event search assistant. You have access to a database of events. Answer the user's query based ONLY on the events provided below.
+
+CURRENT DATE & TIME: ${currentDate}, ${currentTime}
 
 EVENTS DATABASE:
 ${eventsContext}
@@ -80,7 +86,9 @@ Rules:
 - If no events match, return empty matchedEventIds and explain in summary.
 - Be conversational and helpful in the summary.
 - Consider date, location, category, price, and description when matching.
-- For vague queries like "something fun" or "this weekend", use best judgment.
+- Use CURRENT DATE & TIME to correctly handle queries like "upcoming events", "this week", "next month", "past events", "events today", etc.
+- Events with dates before the current date are past events. Events with dates after the current date are upcoming/future events.
+- For vague queries like "something fun" or "this weekend", use best judgment based on current date.
 - Always return valid JSON.`,
       messages: [{ role: "user", content: query }],
     });
