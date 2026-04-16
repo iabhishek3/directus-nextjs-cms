@@ -8,9 +8,15 @@ const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
+const MODEL_MAP: Record<string, string> = {
+  sonnet: "claude-sonnet-4-20250514",
+  opus: "claude-opus-4-20250514",
+};
+
 interface ChatRequest {
   message: string;
   template?: string;
+  model?: string;
   elementContext: {
     tag: string;
     text: string;
@@ -193,8 +199,10 @@ export async function POST(request: NextRequest) {
       templateSlug
     );
 
+    const modelId = MODEL_MAP[body.model || "sonnet"] || MODEL_MAP.sonnet;
+
     const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: modelId,
       max_tokens: 1024,
       system: systemPrompt,
       tools,

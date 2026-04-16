@@ -108,6 +108,8 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
   const [expandedReasoning, setExpandedReasoning] = useState<Set<string>>(new Set());
   const [elementContext, setElementContext] = useState<EditRequest | null>(null);
   const [showTemplateDropdown, setShowTemplateDropdown] = useState(false);
+  const [selectedModel, setSelectedModel] = useState<"sonnet" | "opus">("sonnet");
+  const [showModelDropdown, setShowModelDropdown] = useState(false);
   const [undoneMessages, setUndoneMessages] = useState<Set<string>>(new Set());
   const [undoingMessage, setUndoingMessage] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -255,6 +257,7 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
         body: JSON.stringify({
           message: userInput,
           template: templateSlug,
+          model: selectedModel,
           elementContext: ctx
             ? {
                 tag: ctx.tag,
@@ -408,7 +411,7 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
         {/* Template switcher */}
         <div style={{ position: "relative" }}>
           <button
-            onClick={() => setShowTemplateDropdown(!showTemplateDropdown)}
+            onClick={() => { setShowTemplateDropdown(!showTemplateDropdown); setShowModelDropdown(false); }}
             style={{
               display: "flex",
               alignItems: "center",
@@ -835,11 +838,86 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
               </svg>
             </button>
           </div>
-          <div style={{ fontSize: "11px", color: "#b0b0b0", display: "flex", alignItems: "center", gap: "4px" }}>
-            Claude Sonnet
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+          <div style={{ position: "relative" }}>
+            <button
+              onClick={() => { setShowModelDropdown(!showModelDropdown); setShowTemplateDropdown(false); }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+                fontSize: "11px",
+                color: "#b0b0b0",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+                fontFamily: "inherit",
+              }}
+            >
+              Claude {selectedModel === "sonnet" ? "Sonnet" : "Opus"}
+              <svg
+                width="10" height="10" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth={2.5}
+                style={{ transform: showModelDropdown ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {showModelDropdown && (
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "calc(100% + 8px)",
+                  right: 0,
+                  minWidth: 160,
+                  background: "#fff",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "10px",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+                  zIndex: 100,
+                  overflow: "hidden",
+                }}
+              >
+                <div style={{ padding: "6px 10px", fontSize: "10px", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                  Model
+                </div>
+                {([
+                  { id: "sonnet" as const, label: "Claude Sonnet", desc: "Fast & capable" },
+                  { id: "opus" as const, label: "Claude Opus", desc: "Most intelligent" },
+                ]).map((m) => (
+                  <button
+                    key={m.id}
+                    onClick={() => { setSelectedModel(m.id); setShowModelDropdown(false); }}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      padding: "8px 10px",
+                      border: "none",
+                      background: selectedModel === m.id ? "#f3f0ff" : "transparent",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      transition: "background 0.15s",
+                    }}
+                    onMouseEnter={(e) => { if (selectedModel !== m.id) e.currentTarget.style.background = "#f9fafb"; }}
+                    onMouseLeave={(e) => { if (selectedModel !== m.id) e.currentTarget.style.background = "transparent"; }}
+                  >
+                    <div>
+                      <div style={{ fontSize: "12px", fontWeight: selectedModel === m.id ? 600 : 400, color: selectedModel === m.id ? "#7c3aed" : "#374151" }}>
+                        {m.label}
+                      </div>
+                      <div style={{ fontSize: "10px", color: "#9ca3af", marginTop: "1px" }}>{m.desc}</div>
+                    </div>
+                    {selectedModel === m.id && (
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
