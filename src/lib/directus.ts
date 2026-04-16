@@ -158,6 +158,26 @@ export function getAssetUrl(assetId: string | null | undefined): string | null {
 
 const SINGLETON_COLLECTIONS = new Set(["hero_section"]);
 
+export async function readDirectusItemFields(
+  collection: string,
+  id: string | number,
+  fieldNames: string[]
+): Promise<Record<string, unknown>> {
+  const client = await getAdminClient();
+  const token = await client.getToken();
+  const fieldsParam = fieldNames.join(",");
+  const url = SINGLETON_COLLECTIONS.has(collection)
+    ? `${directusUrl}/items/${collection}?fields=${fieldsParam}`
+    : `${directusUrl}/items/${collection}/${id}?fields=${fieldsParam}`;
+  const res = await fetch(url, {
+    headers: { Authorization: `Bearer ${token}` },
+    cache: "no-store",
+  });
+  if (!res.ok) throw new Error("Failed to read item");
+  const json = await res.json();
+  return json.data as Record<string, unknown>;
+}
+
 export async function updateDirectusItem(
   collection: string,
   id: string | number,

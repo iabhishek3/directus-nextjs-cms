@@ -3,12 +3,25 @@
 import { useState, useRef, useEffect } from "react";
 import type { EditRequest } from "./EditorShell";
 
+interface UndoInfo {
+  directus?: {
+    collection: string;
+    id: string;
+    previousFields: Record<string, unknown>;
+  };
+  config?: {
+    template: string;
+    updates: { path: string; value: unknown }[];
+  };
+}
+
 interface Message {
   id: string;
   role: "user" | "assistant";
   content: string;
   reasoning?: string;
   timestamp: Date;
+  undoInfo?: UndoInfo;
 }
 
 const TEMPLATE_MESSAGES: Record<string, Message[]> = {
@@ -95,6 +108,8 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
   const [expandedReasoning, setExpandedReasoning] = useState<Set<string>>(new Set());
   const [elementContext, setElementContext] = useState<EditRequest | null>(null);
   const [showTemplateDropdown, setShowTemplateDropdown] = useState(false);
+  const [undoneMessages, setUndoneMessages] = useState<Set<string>>(new Set());
+  const [undoingMessage, setUndoingMessage] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -136,6 +151,74 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
       else next.add(id);
       return next;
     });
+  };
+
+  const handleUndo = async (msgId: string, undoInfo: UndoInfo) => {
+    setUndoingMessage(msgId);
+    try {
+      let success = true;
+
+      // Revert Directus CMS change
+      if (undoInfo.directus) {
+        const res = await fetch("/api/update", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            collection: undoInfo.directus.collection,
+            id: undoInfo.directus.id,
+            fields: undoInfo.directus.previousFields,
+          }),
+        });
+        const data = await res.json();
+        if (!data.success) success = false;
+      }
+
+      // Revert config change
+      if (undoInfo.config) {
+        const res = await fetch("/api/config", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            template: undoInfo.config.template,
+            updates: undoInfo.config.updates,
+          }),
+        });
+        const data = await res.json();
+        if (!data.success) success = false;
+      }
+
+      if (success) {
+        setUndoneMessages((prev) => new Set(prev).add(msgId));
+        // Refresh preview
+        setTimeout(() => {
+          const iframe = document.getElementById("preview-iframe") as HTMLIFrameElement;
+          if (iframe) {
+            const url = new URL(currentTemplate, window.location.origin);
+            url.searchParams.set("_t", Date.now().toString());
+            iframe.src = url.toString();
+          }
+        }, 500);
+      } else {
+        // Show failure as a new assistant message
+        const errMsg: Message = {
+          id: (Date.now() + 1).toString(),
+          role: "assistant",
+          content: "**Undo failed.** The previous state could not be restored. Please try the change again manually.",
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, errMsg]);
+      }
+    } catch {
+      const errMsg: Message = {
+        id: (Date.now() + 1).toString(),
+        role: "assistant",
+        content: "**Undo failed.** Something went wrong while reverting the change.",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, errMsg]);
+    } finally {
+      setUndoingMessage(null);
+    }
   };
 
   const handleSend = async () => {
@@ -191,6 +274,7 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
       // 2. Execute actions
       let directusSuccess = false;
       let configSuccess = false;
+      const undoInfo: UndoInfo = {};
 
       // 2a. Directus CMS update
       if (chatData.action) {
@@ -201,6 +285,13 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
         });
         const updateData = await updateRes.json();
         directusSuccess = updateData.success;
+        if (directusSuccess && updateData.previousFields) {
+          undoInfo.directus = {
+            collection: chatData.action.collection,
+            id: chatData.action.id,
+            previousFields: updateData.previousFields,
+          };
+        }
       }
 
       // 2b. Config JSON update
@@ -212,6 +303,15 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
         });
         const configData = await configRes.json();
         configSuccess = configData.success;
+        if (configSuccess && configData.applied) {
+          undoInfo.config = {
+            template: chatData.configAction.template || "events",
+            updates: configData.applied.map((a: { path: string; oldValue: unknown }) => ({
+              path: a.path,
+              value: a.oldValue,
+            })),
+          };
+        }
       }
 
       // 3. Build assistant message
@@ -237,12 +337,14 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
         reasoning = `Updating ${chatData.action.collection} #${chatData.action.id}: ${JSON.stringify(chatData.action.fields, null, 2)}`;
       }
 
+      const hasUndo = undoInfo.directus || undoInfo.config;
       const aiMsg: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
         content,
         reasoning,
         timestamp: new Date(),
+        ...(hasUndo ? { undoInfo } : {}),
       };
       setMessages((prev) => [...prev, aiMsg]);
 
@@ -508,6 +610,63 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
                       .replace(/\n/g, "<br/>"),
                   }}
                 />
+
+                {/* Undo button */}
+                {msg.undoInfo && !undoneMessages.has(msg.id) && (
+                  <button
+                    onClick={() => handleUndo(msg.id, msg.undoInfo!)}
+                    disabled={undoingMessage === msg.id}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      alignSelf: "flex-start",
+                      marginTop: "4px",
+                      padding: "5px 12px",
+                      borderRadius: "8px",
+                      border: "1px solid #e5e7eb",
+                      background: "#fff",
+                      cursor: undoingMessage === msg.id ? "default" : "pointer",
+                      fontSize: "12px",
+                      fontWeight: 500,
+                      color: "#6b7280",
+                      transition: "all 0.15s",
+                      opacity: undoingMessage === msg.id ? 0.6 : 1,
+                    }}
+                    onMouseEnter={(e) => {
+                      if (undoingMessage !== msg.id) {
+                        e.currentTarget.style.background = "#f9fafb";
+                        e.currentTarget.style.borderColor = "#d1d5db";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "#fff";
+                      e.currentTarget.style.borderColor = "#e5e7eb";
+                    }}
+                  >
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M3 7v6h6" />
+                      <path d="M21 17a9 9 0 00-9-9 9 9 0 00-6.69 3L3 13" />
+                    </svg>
+                    {undoingMessage === msg.id ? "Undoing..." : "Undo"}
+                  </button>
+                )}
+                {msg.undoInfo && undoneMessages.has(msg.id) && (
+                  <span style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "5px",
+                    marginTop: "4px",
+                    fontSize: "12px",
+                    color: "#9ca3af",
+                    fontStyle: "italic",
+                  }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                    Change reverted
+                  </span>
+                )}
               </div>
             )}
           </div>

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { updateDirectusItem, COLLECTION_SCHEMAS } from "@/lib/directus";
+import { updateDirectusItem, readDirectusItemFields, COLLECTION_SCHEMAS } from "@/lib/directus";
 
 interface UpdateRequest {
   collection: string;
@@ -49,6 +49,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Read old values before updating (for undo support)
+    let previousFields: Record<string, unknown> = {};
+    try {
+      previousFields = await readDirectusItemFields(
+        body.collection,
+        body.id,
+        Object.keys(sanitizedFields)
+      );
+    } catch {
+      // Best-effort — undo just won't be available
+    }
+
     await updateDirectusItem(body.collection, body.id, sanitizedFields);
 
     // Clear Directus Redis cache so reads return fresh data
@@ -74,7 +86,10 @@ export async function POST(request: NextRequest) {
       // Cache clear is best-effort — the update itself succeeded
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({
+      success: true,
+      ...(Object.keys(previousFields).length > 0 ? { previousFields } : {}),
+    });
   } catch (error) {
     console.error("Update API error:", error);
     const message =
