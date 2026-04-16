@@ -108,7 +108,7 @@ export default function ChatPanel({ editRequest, onEditRequestHandled, currentTe
   const [expandedReasoning, setExpandedReasoning] = useState<Set<string>>(new Set());
   const [elementContext, setElementContext] = useState<EditRequest | null>(null);
   const [showTemplateDropdown, setShowTemplateDropdown] = useState(false);
-  const [selectedModel, setSelectedModel] = useState<"sonnet" | "opus">("sonnet");
+  const [selectedModel, setSelectedModel] = useState<"sonnet" | "opus">("opus");
   const [showModelDropdown, setShowModelDropdown] = useState(false);
   const [undoneMessages, setUndoneMessages] = useState<Set<string>>(new Set());
   const [undoingMessage, setUndoingMessage] = useState<string | null>(null);

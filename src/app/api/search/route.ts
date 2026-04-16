@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
     const currentTime = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
 
     const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-opus-4-20250514",
       max_tokens: 1024,
       system: `You are a helpful event search assistant. You have access to a database of events. Answer the user's query based ONLY on the events provided below.
 

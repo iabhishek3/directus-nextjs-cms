@@ -123,7 +123,7 @@
       "fontSize": 13
     },
     "title": {
-      "text": "Ask anything about events",
+      "text": "Ask anything",
       "fontSize": "clamp(36px, 5vw, 56px)",
       "fontWeight": 800,
       "letterSpacing": "-0.04em",
