@@ -398,8 +398,8 @@
       {
         "name": "Starter",
         "description": "Perfect for side projects and small teams",
-        "monthlyPrice": 0,
-        "yearlyPrice": 0,
+        "monthlyPrice": 10,
+        "yearlyPrice": 96,
         "popular": false,
         "cta": "Get Started",
         "features": [

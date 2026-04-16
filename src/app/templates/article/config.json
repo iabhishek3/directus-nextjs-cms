@@ -1,0 +1,247 @@
+{
+  "meta": {
+    "name": "Article",
+    "version": "1.0",
+    "description": "Long-form article template with rich typography and sidebar"
+  },
+  "themes": {
+    "default": "light",
+    "dark": {
+      "pageBg": "#0f0b1a",
+      "text": "#f4f4f5",
+      "textSecondary": "#a1a1aa",
+      "textMuted": "#71717a",
+      "textFaint": "#52525b",
+      "navBg": "rgba(15,11,26,0.85)",
+      "navBorder": "rgba(255,255,255,0.06)",
+      "cardBg": "rgba(255,255,255,0.04)",
+      "cardBorder": "rgba(255,255,255,0.08)",
+      "sectionBorder": "rgba(255,255,255,0.06)",
+      "codeBg": "rgba(255,255,255,0.06)",
+      "quoteBorder": "#7c3aed",
+      "quoteBg": "rgba(124,58,237,0.06)",
+      "tagBg": "rgba(124,58,237,0.12)",
+      "tagText": "#a78bfa",
+      "accent": "#7c3aed",
+      "footerBg": "#0a0816"
+    },
+    "light": {
+      "pageBg": "#ffffff",
+      "text": "#18181b",
+      "textSecondary": "#52525b",
+      "textMuted": "#a1a1aa",
+      "textFaint": "#d4d4d8",
+      "navBg": "rgba(255,255,255,0.9)",
+      "navBorder": "#e4e4e7",
+      "cardBg": "#f9fafb",
+      "cardBorder": "#e4e4e7",
+      "sectionBorder": "#e4e4e7",
+      "codeBg": "#f4f4f5",
+      "quoteBorder": "#7c3aed",
+      "quoteBg": "#f5f3ff",
+      "tagBg": "#f3f0ff",
+      "tagText": "#7c3aed",
+      "accent": "#7c3aed",
+      "footerBg": "#fafafa"
+    }
+  },
+  "nav": {
+    "height": 64,
+    "logo": "/htx-logo.png",
+    "logoHeight": 48,
+    "backLink": {
+      "text": "All Templates",
+      "href": "/templates"
+    },
+    "themeToggle": {
+      "darkIcon": "☀️",
+      "lightIcon": "🌙",
+      "size": 36,
+      "borderRadius": 8
+    }
+  },
+  "article": {
+    "title": "Building Scalable AI Systems: Lessons from Production",
+    "subtitle": "What we learned deploying machine learning models at scale — and the mistakes that cost us month",
+    "category": "Engineering",
+    "date": "April 12, 2026",
+    "readTime": "8 min read",
+    "tags": [
+      "AI",
+      "Machine Learning",
+      "Production",
+      "Architecture"
+    ],
+    "author": {
+      "name": "Sarah Chen",
+      "role": "Senior ML Engineer",
+      "avatar": "SC"
+    }
+  },
+  "toc": [
+    {
+      "id": "intro",
+      "label": "Introduction"
+    },
+    {
+      "id": "challenge",
+      "label": "The Challenge"
+    },
+    {
+      "id": "architecture",
+      "label": "Our Architecture"
+    },
+    {
+      "id": "mistakes",
+      "label": "Mistakes We Made"
+    },
+    {
+      "id": "results",
+      "label": "Results"
+    },
+    {
+      "id": "takeaways",
+      "label": "Key Takeaways"
+    }
+  ],
+  "content": {
+    "intro": {
+      "paragraphs": [
+        "When we first started building our AI platform, we thought the hard part was training the model. We were wrong. The hard part is everything that happens after you type model.fit() — deployment, monitoring, scaling, and keeping the whole thing running when real users start sending real data.",
+        "This post shares the lessons we learned over 18 months of building and scaling our ML infrastructure. Some of these lessons cost us weeks of debugging. Others cost us months of rework. All of them changed how we think about building AI systems."
+      ]
+    },
+    "challenge": {
+      "heading": "The Challenge",
+      "paragraphs": [
+        "Our platform processes over 2 million requests per day. Each request needs to be classified, routed to the appropriate model, and responded to within 200ms. The models themselves are updated weekly, and we need zero-downtime deployments."
+      ],
+      "stats": [
+        {
+          "value": "2M+",
+          "label": "Daily Requests"
+        },
+        {
+          "value": "<200ms",
+          "label": "P99 Latency"
+        },
+        {
+          "value": "99.97%",
+          "label": "Uptime"
+        }
+      ]
+    },
+    "architecture": {
+      "heading": "Our Architecture",
+      "paragraphs": [
+        "We settled on a microservices architecture with a dedicated model serving layer. Each model runs in its own container with autoscaling based on request volume and latency metrics.",
+        "The key insight was separating the model serving layer from the business logic layer. This let us update models independently and roll back without affecting the rest of the system."
+      ],
+      "codeBlock": [
+        "# Model serving configuration",
+        "service: ml-inference",
+        "replicas: { min: 3, max: 20 }",
+        "scaling:",
+        "  metric: request_latency_p99",
+        "  target: 150ms",
+        "health_check: /v1/models/status"
+      ]
+    },
+    "mistakes": {
+      "heading": "Mistakes We Made",
+      "intro": "We made plenty of mistakes along the way. Here are the three that hurt the most:",
+      "quote": "We spent three months optimizing model accuracy by 0.3%, only to discover that our data pipeline was silently dropping 5% of incoming requests.",
+      "items": [
+        {
+          "label": "Ignoring data quality.",
+          "text": "We focused on model architecture when the real problem was data quality. Garbage in, garbage out applies more than ever at scale."
+        },
+        {
+          "label": "No feature store.",
+          "text": "Without a centralized feature store, different teams computed the same features differently. This caused subtle bugs that were nearly impossible to track down."
+        },
+        {
+          "label": "Testing in production.",
+          "text": "We didn't invest in a proper staging environment early enough. By the time we did, we had already shipped several bugs to users."
+        }
+      ]
+    },
+    "results": {
+      "heading": "Results",
+      "paragraphs": [
+        "After implementing these changes, we saw dramatic improvements across the board. Model deployment time dropped from 4 hours to 15 minutes. Incident response time fell by 60%. And most importantly, model accuracy improved by 12% — not from better algorithms, but from better data."
+      ]
+    },
+    "takeaways": {
+      "heading": "Key Takeaways",
+      "items": [
+        "Invest in data quality before model complexity",
+        "Build observability from day one — you can't fix what you can't see",
+        "Separate model serving from business logic",
+        "Automate your deployment pipeline early",
+        "Test with real data in a staging environment"
+      ]
+    }
+  },
+  "relatedArticles": [
+    {
+      "title": "MLOps Best Practices for Small Teams",
+      "category": "Engineering",
+      "readTime": "6 min",
+      "icon": "⚙️"
+    },
+    {
+      "title": "The Real Cost of Technical Debt in AI",
+      "category": "Business",
+      "readTime": "5 min",
+      "icon": "💰"
+    },
+    {
+      "title": "From Notebook to Production in 30 Days",
+      "category": "Tutorial",
+      "readTime": "12 min",
+      "icon": "📓"
+    }
+  ],
+  "typography": {
+    "body": {
+      "fontFamily": "'Georgia', 'Times New Roman', serif",
+      "fontSize": 18,
+      "lineHeight": 1.8
+    },
+    "heading": {
+      "fontFamily": "'Georgia', serif",
+      "fontSize": 28,
+      "fontWeight": 700,
+      "letterSpacing": "-0.02em"
+    },
+    "title": {
+      "fontSize": 44,
+      "fontWeight": 700,
+      "letterSpacing": "-0.03em",
+      "lineHeight": 1.15
+    },
+    "subtitle": {
+      "fontSize": 22,
+      "lineHeight": 1.6
+    },
+    "code": {
+      "fontFamily": "'JetBrains Mono', monospace",
+      "fontSize": 14,
+      "lineHeight": 1.8
+    }
+  },
+  "layout": {
+    "maxWidth": 1024,
+    "contentMaxWidth": 720,
+    "sidebarWidth": 240,
+    "contentGap": 64
+  },
+  "footer": {
+    "copyright": "© 2026 Article. All rights reserved.",
+    "backLink": {
+      "text": "Back to Templates",
+      "href": "/templates"
+    }
+  }
+}
