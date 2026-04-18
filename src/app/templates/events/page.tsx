@@ -164,7 +164,7 @@ export default function PreviewPage() {
               textDecoration: "none", fontWeight: nc.ctaButton.fontWeight, fontSize: nc.ctaButton.fontSize,
               boxShadow: t.primaryBtnShadow,
             }}>
-              {nc.ctaButton.text}
+              <span data-config-path="nav.ctaButton.text">{nc.ctaButton.text}</span>
             </a>
           </div>
         </div>
@@ -211,7 +211,7 @@ export default function PreviewPage() {
               : hc.liveBadge.textNoEvents}
           </div>
 
-          <h1 style={{
+          <h1 data-directus-field="title" style={{
             fontSize: hc.title.fontSize, fontWeight: hc.title.fontWeight,
             letterSpacing: hc.title.letterSpacing, lineHeight: hc.title.lineHeight,
             maxWidth: hc.title.maxWidth, margin: "0 auto",
@@ -223,7 +223,7 @@ export default function PreviewPage() {
               : heroTitle}
           </h1>
 
-          <p style={{
+          <p data-directus-field="subtitle" style={{
             fontSize: hc.subtitle.fontSize, maxWidth: hc.subtitle.maxWidth,
             margin: `${hc.subtitle.marginTop}px auto 0`, lineHeight: hc.subtitle.lineHeight,
             color: heroBgImage ? hc.backgroundImage.subtitleColor : t.textSecondary,
@@ -285,12 +285,12 @@ export default function PreviewPage() {
               fontSize: 12, fontWeight: 600, color: t.badgeText, marginBottom: 16,
               textTransform: "uppercase", letterSpacing: "0.05em",
             }}>
-              {ec.header.badgeText}
+              <span data-config-path="eventsSection.header.badgeText">{ec.header.badgeText}</span>
             </div>
-            <h2 style={{ fontSize: ec.header.titleSize, fontWeight: ec.header.titleWeight, letterSpacing: ec.header.titleLetterSpacing, color: t.text }}>
+            <h2 data-config-path="eventsSection.header.title" style={{ fontSize: ec.header.titleSize, fontWeight: ec.header.titleWeight, letterSpacing: ec.header.titleLetterSpacing, color: t.text }}>
               {ec.header.title}
             </h2>
-            <p style={{ color: t.textMuted, marginTop: 8, fontSize: ec.header.subtitleSize }}>{ec.header.subtitle}</p>
+            <p data-config-path="eventsSection.header.subtitle" style={{ color: t.textMuted, marginTop: 8, fontSize: ec.header.subtitleSize }}>{ec.header.subtitle}</p>
           </div>
           <a href={ec.header.viewAllHref} style={{ fontSize: 14, color: t.badgeText, textDecoration: "none", fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}>
             {ec.header.viewAllText}
@@ -407,10 +407,10 @@ export default function PreviewPage() {
         }}>
           <div style={{ position: "relative" }}>
             <span style={{ fontSize: cc.iconSize, display: "block", marginBottom: cc.iconMarginBottom }}>{cc.icon}</span>
-            <h2 style={{ fontSize: cc.titleSize, fontWeight: cc.titleWeight, letterSpacing: cc.titleLetterSpacing, color: t.ctaText }}>
+            <h2 data-config-path="cta.title" style={{ fontSize: cc.titleSize, fontWeight: cc.titleWeight, letterSpacing: cc.titleLetterSpacing, color: t.ctaText }}>
               {cc.title}
             </h2>
-            <p style={{ color: t.ctaSubtext, maxWidth: cc.subtitleMaxWidth, margin: "16px auto 0", fontSize: cc.subtitleSize, lineHeight: cc.subtitleLineHeight }}>
+            <p data-config-path="cta.subtitle" style={{ color: t.ctaSubtext, maxWidth: cc.subtitleMaxWidth, margin: "16px auto 0", fontSize: cc.subtitleSize, lineHeight: cc.subtitleLineHeight }}>
               {cc.subtitle}
             </p>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: cc.buttonsGap, marginTop: cc.buttonsMarginTop }}>
@@ -419,7 +419,7 @@ export default function PreviewPage() {
                 padding: cc.primaryButton.padding, borderRadius: cc.primaryButton.borderRadius,
                 textDecoration: "none", fontWeight: cc.primaryButton.fontWeight, fontSize: cc.primaryButton.fontSize,
               }}>
-                {cc.primaryButton.text}
+                <span data-config-path="cta.primaryButton.text">{cc.primaryButton.text}</span>
               </a>
               <a href={cc.secondaryButton.href} style={{
                 border: `1px solid ${t.ctaSecondaryBtnBorder}`, color: t.ctaSecondaryBtnText,
@@ -449,7 +449,7 @@ export default function PreviewPage() {
             </div>
           </div>
           <div style={{ borderTop: `1px solid ${t.sectionBorder}`, paddingTop: 24, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <span style={{ fontSize: fc.copyrightFontSize, color: t.textFaint }}>{fc.copyright}</span>
+            <span data-config-path="footer.copyright" style={{ fontSize: fc.copyrightFontSize, color: t.textFaint }}>{fc.copyright}</span>
             <div style={{ display: "flex", gap: 16 }}>
               {fc.socialLinks.map((s) => (
                 <a key={s.label} href={s.href} style={{ fontSize: fc.socialFontSize, color: t.textMuted, textDecoration: "none" }}>{s.label}</a>

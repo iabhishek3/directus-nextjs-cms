@@ -31,6 +31,17 @@ export default function EditorShell({ initialTemplate = "/templates/events" }: E
           prompt: e.data.prompt,
         });
       }
+      if (e.data?.type === "inline-edit-done") {
+        // Refresh iframe after inline edit
+        setTimeout(() => {
+          const iframe = document.getElementById("preview-iframe") as HTMLIFrameElement;
+          if (iframe) {
+            const url = new URL(iframe.src);
+            url.searchParams.set("_t", Date.now().toString());
+            iframe.src = url.toString();
+          }
+        }, 500);
+      }
     };
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);

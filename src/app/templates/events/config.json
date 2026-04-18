@@ -172,7 +172,7 @@
         "borderRadius": 12
       },
       "secondary": {
-        "text": "Learn More",
+        "text": "Learn More now",
         "href": "#about",
         "fontSize": 16,
         "fontWeight": 600,
@@ -224,7 +224,7 @@
       },
       {
         "value": "120+",
-        "label": "Events",
+        "label": "Satisfaction it did not",
         "icon": "🎪",
         "color": "#2563eb"
       },
@@ -253,7 +253,7 @@
     "maxWidth": 1200,
     "header": {
       "badgeText": "Upcoming",
-      "title": "Featured event in SG",
+      "title": "Featured event in SG 2026",
       "titleSize": 36,
       "titleWeight": 800,
       "titleLetterSpacing": "-0.03em",
@@ -386,7 +386,7 @@
     "icon": "🚀",
     "iconSize": 56,
     "iconMarginBottom": 24,
-    "title": "Ready to find your next event?",
+    "title": "Ready to find your next event ?",
     "titleSize": "clamp(30px, 4vw, 48px)",
     "titleWeight": 800,
     "titleLetterSpacing": "-0.03em",
@@ -397,7 +397,7 @@
     "buttonsMarginTop": 40,
     "buttonsGap": 16,
     "primaryButton": {
-      "text": "Get Started — It's Free",
+      "text": "Get Started — It's Free Now",
       "href": "#",
       "fontSize": 16,
       "fontWeight": 600,
