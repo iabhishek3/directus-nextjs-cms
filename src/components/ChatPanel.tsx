@@ -76,6 +76,23 @@ const TEMPLATE_MESSAGES: Record<string, Message[]> = {
       timestamp: new Date(Date.now() - 60000 * 4),
     },
   ],
+  helpcentre: [
+    {
+      id: "1",
+      role: "user",
+      content: "Create a help centre page with transaction history table and summary cards.",
+      timestamp: new Date(Date.now() - 60000 * 5),
+    },
+    {
+      id: "2",
+      role: "assistant",
+      content:
+        "I've built the Help Centre template with:\n\n1. **Green branded header** with account info and navigation\n2. **Summary cards** showing transaction count, total amount, and period\n3. **Data table** with booking details, alternating row colors, and a totals row\n4. **Dark/light theme** toggle\n\nAll content is JSON-driven — edit transactions, colors, labels, and styles via chat!",
+      reasoning:
+        "Created a transaction history page driven entirely by config.json. The table renders from a transactions array in the config, making it easy to update data and styling without code changes.",
+      timestamp: new Date(Date.now() - 60000 * 4),
+    },
+  ],
 };
 
 function getInitialMessages(templateId: string): Message[] {
@@ -92,6 +109,7 @@ export const TEMPLATES: TemplateOption[] = [
   { id: "events", name: "Events Platform", route: "/templates/events" },
   { id: "article", name: "Article", route: "/templates/article" },
   { id: "search", name: "AI Event Search", route: "/templates/search" },
+  { id: "helpcentre", name: "Help Centre", route: "/templates/helpcentre" },
 ];
 
 interface ChatPanelProps {

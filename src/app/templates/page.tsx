@@ -159,6 +159,19 @@ const templates: Template[] = [
     likes: 203,
     price: "Free",
   },
+  {
+    id: "helpcentre",
+    name: "Help Centre",
+    description: "Transaction history with data table & summary cards",
+    category: "App",
+    route: "/templates/helpcentre",
+    status: "live",
+    tags: ["Table", "Dashboard"],
+    author: "Agentic CMS",
+    uses: "1.2K",
+    likes: 178,
+    price: "Free",
+  },
 ];
 
 const categories = ["All", ...Array.from(new Set(templates.map((t) => t.category)))];

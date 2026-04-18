@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "name": "Help Centre",
+    "version": "1.0",
+    "description": "Member statement / transaction history"
+  },
+  "themes": {
+    "default": "light",
+    "light": {
+      "pageBg": "#ffffff",
+      "headerBg": "#00b14f",
+      "headerText": "#ffffff",
+      "headerTextSecondary": "rgba(255,255,255,0.85)",
+      "summaryBg": "#ffffff",
+      "summaryText": "#374151",
+      "summaryLabel": "#00b14f",
+      "tableBg": "#ffffff",
+      "tableHeaderBg": "#ffffff",
+      "tableHeaderText": "#374151",
+      "tableRowBg": "#ffffff",
+      "tableRowAltBg": "#e9f7ee",
+      "tableBorder": "#e0e0e0",
+      "tableText": "#374151",
+      "text": "#111827",
+      "textSecondary": "#6b7280"
+    }
+  },
+  "fonts": {
+    "primary": "'Inter', system-ui, -apple-system, sans-serif"
+  },
+  "header": {
+    "paddingTop": 40,
+    "paddingBottom": 40,
+    "logo": {
+      "text": "Grab",
+      "fontSize": 48,
+      "fontWeight": 800,
+      "fontStyle": "italic"
+    },
+    "address": {
+      "lines": [
+        "18 Tampines Industrial Crescent",
+        "#01-12C Space@Tampines",
+        "Singapore 528605"
+      ],
+      "fontSize": 14,
+      "marginTop": 20,
+      "lineHeight": 1.6
+    },
+    "statement": {
+      "dateRange": "2026-03-18 - 2026-04-18",
+      "label": "Member Statement",
+      "name": "Monalisha",
+      "email": "monalishachoudhary03@gmail.com",
+      "fontSize": 14,
+      "lineHeight": 1.6
+    }
+  },
+  "summary": {
+    "padding": "24px 0",
+    "totalLabel": "Total Transactions:",
+    "totalValue": "17",
+    "amountLabel": "Amount:",
+    "amountValue": "SGD 500.40",
+    "fontSize": 14,
+    "labelFontWeight": 700,
+    "valueFontWeight": 400,
+    "gap": 40
+  },
+  "table": {
+    "columns": [
+      {
+        "key": "dateTime",
+        "label": "Date/Time",
+        "width": "155px"
+      },
+      {
+        "key": "bookingCode",
+        "label": "Booking Code",
+        "width": "160px"
+      },
+      {
+        "key": "pickupAddress",
+        "label": "Pick-up Address",
+        "width": "auto"
+      },
+      {
+        "key": "dropoffAddress",
+        "label": "Drop-off Address",
+        "width": "180px"
+      },
+      {
+        "key": "serviceType",
+        "label": "Service Type",
+        "width": "155px"
+      },
+      {
+        "key": "currency",
+        "label": "Currency",
+        "width": "75px"
+      },
+      {
+        "key": "amount",
+        "label": "Amount",
+        "width": "100px",
+        "align": "right"
+      }
+    ],
+    "headerFontSize": 13,
+    "headerFontWeight": 600,
+    "cellFontSize": 13,
+    "cellPadding": "18px 16px",
+    "headerPadding": "14px 16px"
+  },
+  "transactions": [
+    {
+      "dateTime": "18 Apr 2026, 12:00PM",
+      "bookingCode": "A-97N6LJBGWCQ7AV",
+      "pickupAddress": "Ward Block (Level 1 Main Entrance) - Tan Tock Seng Hospital",
+      "dropoffAddress": "2 Changi Business Park Cres",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "30.70"
+    },
+    {
+      "dateTime": "14 Apr 2026, 07:02AM",
+      "bookingCode": "A-97EU7EFGW5IBAV",
+      "pickupAddress": "Zedge",
+      "dropoffAddress": "2 Changi Business Park Cres",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "21.00"
+    },
+    {
+      "dateTime": "13 Apr 2026, 06:44AM",
+      "bookingCode": "A-97AOLUTWXBCDAV",
+      "pickupAddress": "Zedge",
+      "dropoffAddress": "2 Changi Business Park Cres",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "28.70"
+    },
+    {
+      "dateTime": "11 Apr 2026, 07:50AM",
+      "bookingCode": "A-972N22OGX85TAV",
+      "pickupAddress": "Zedge",
+      "dropoffAddress": "2 Changi Business Park Cres",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "17.80"
+    },
+    {
+      "dateTime": "10 Apr 2026, 11:50PM",
+      "bookingCode": "A-97XB5RWGWMFUAV",
+      "pickupAddress": "East Coast Depot",
+      "dropoffAddress": "Zedge",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "24.40"
+    },
+    {
+      "dateTime": "08 Apr 2026, 03:05PM",
+      "bookingCode": "A-96NJDU4GWSXSAV",
+      "pickupAddress": "Entrance/Exit A (Westbound), Tanah Merah MRT",
+      "dropoffAddress": "East Coast Integrated",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "8.10"
+    },
+    {
+      "dateTime": "07 Apr 2026, 04:30PM",
+      "bookingCode": "A-96JNCP2GW9PTAV",
+      "pickupAddress": "East Coast Integrated",
+      "dropoffAddress": "Zedge",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "16.60"
+    },
+    {
+      "dateTime": "07 Apr 2026, 06:22AM",
+      "bookingCode": "A-96HVL9TWW9TCAV",
+      "pickupAddress": "Zedge",
+      "dropoffAddress": "East Coast Depot",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "17.20"
+    },
+    {
+      "dateTime": "06 Apr 2026, 09:42PM",
+      "bookingCode": "A-96GGXTKGWJLPAV",
+      "pickupAddress": "East Coast Depot",
+      "dropoffAddress": "Zedge",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "16.20"
+    },
+    {
+      "dateTime": "04 Apr 2026, 04:19AM",
+      "bookingCode": "A-9658T5FWWM68AV",
+      "pickupAddress": "East Coast Depot",
+      "dropoffAddress": "Zedge",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "19.30"
+    },
+    {
+      "dateTime": "03 Apr 2026, 10:29PM",
+      "bookingCode": "A-9648S7WGWLLBAV",
+      "pickupAddress": "Zedge",
+      "dropoffAddress": "East Coast Integrated",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "16.90"
+    },
+    {
+      "dateTime": "01 Apr 2026, 06:52AM",
+      "bookingCode": "A-95PBE2KGWSJRAV",
+      "pickupAddress": "Zedge",
+      "dropoffAddress": "2 Changi Business Park Cres",
+      "serviceType": "Standard | Car or taxi",
+      "currency": "SGD",
+      "amount": "17.40"
+    },
+    {
+      "dateTime": "31 Mar 2026, 03:59PM",
+      "bookingCode": "A-95MPK29WWROUAV",
+      "pickupAddress": "The Daily Cut - Bugis",
+      "dropoffAddress": "Zedge",
+      "serviceType": "GrabFood",
+      "currency": "SGD",
+      "amount": "20.90"
+    }
+  ],
+  "sections": {
+    "header": {
+      "visible": true
+    },
+    "summary": {
+      "visible": true
+    },
+    "table": {
+      "visible": true
+    }
+  },
+  "layout": {
+    "maxWidth": 1200,
+    "horizontalPadding": 40
+  },
+  "loading": {
+    "spinnerSize": 48,
+    "spinnerBorderWidth": 3,
+    "spinnerTrackColor": "rgba(107,155,110,0.2)",
+    "spinnerActiveColor": "#6b9b6e",
+    "text": "Loading...",
+    "textSize": 14
+  }
+}
